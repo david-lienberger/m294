@@ -5,17 +5,6 @@ html {
     font-weight: 300;
 }
 
-$theme-colors: (
-    'btn-primary': red,
-);
-
-.btn-primary {
-    color: #fff;
-    background-color: #df0000;
-    background-color: cutom-color;
-    border-color: #cd1515;
-    border-color: cutom-cor;
-}
-
+$theme-colors: ();
 
 @import "~bootstrap/scss/bootstrap";
