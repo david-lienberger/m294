@@ -1,9 +1,14 @@
-import { useState } from "react";
-import { LoginPage } from "./../pages/login/login.page"
+import axios from "axios";
 
-export default class HomeService {
-    getUser() {
-        const [user, setuser] = useState(0);
-    
+export default class AuthService {
+    getUser({email, password}) {
+        return axios({
+            method: 'post',
+            url: 'http://localhost:4242/api/login',
+            data: {
+              email: {email},
+              password: {password}
+            }
+          });
     }
     }
