@@ -7,7 +7,7 @@ export default function ConnectionComponent({ connection, deleteConnection }) {
 
   return(
     <>
-      <Link to={"/connection/" + connection.id}>
+      <Link to={`/connection?from=${connection.from}&to=${connection.to}`} style={{color: 'black', textDecoration: 'none'}}>
         <Card id='connection-card'>
           <Card.Header>
             Verbindung: {connection.id}

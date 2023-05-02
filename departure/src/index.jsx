@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     element: <App />
   },
   {
-    path: "/connection/:id",
+    path: "/connection",
     element: <ConnectionDetailsComponent />
   }
 ]);
