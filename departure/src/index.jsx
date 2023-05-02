@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-import App from './pages/dashboard.page';
+import LoginPage from './pages/login/login.page';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <LoginPage/>
   </React.StrictMode>,
 );
