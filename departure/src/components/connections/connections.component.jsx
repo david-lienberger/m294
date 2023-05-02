@@ -26,6 +26,10 @@ export default function ConnectionsComponent() {
     );
   }
 
+  function navigateToDetail(id) {
+    console.log(id);
+  }
+
   return (
     <>
       {
@@ -35,7 +39,7 @@ export default function ConnectionsComponent() {
             connections.map((connection) => {
               return (
                 connections &&
-                <div key={connection.id}>
+                <div onClick={() => {navigateToDetail(connection.id)}} key={connection.id}>
                   <ConnectionComponent connection={connection} deleteConnection={deleteConnection}></ConnectionComponent>
                 </div>
               );
