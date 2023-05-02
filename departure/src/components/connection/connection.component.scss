@@ -1,11 +1,13 @@
 #connection-card {
-  height: 10rem;
+  height: 7rem;
   margin: 1em;
-  display: flex;
-  flex-direction: column;
   font-size: 1.5em;
   box-shadow: rgba(0, 0, 0, 0.1) 0 10px 50px;
   cursor: pointer;
+}
+
+#journey-content {
+  width: 75%;
 }
 
 #destinations {
@@ -43,6 +45,7 @@
 }
 
 #delete-button {
+  margin-top: 1rem;
   color: #fff;
   background-color: #EB0000;
   float: right;

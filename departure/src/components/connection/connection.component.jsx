@@ -1,20 +1,31 @@
 import React from 'react';
 import './connection.component.scss';
 import { Button, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function ConnectionComponent({ connection, deleteConnection }) {
+  const navigate = useNavigate();
 
-  return(
+  function navigateToDetail(event) {
+    // To prevent that the app navigates if the delete-button gets clicked
+    if (event.target.tagName.toString() === 'DIV') {
+      navigate(`/connection?from=${connection.from}&to=${connection.to}`);
+    }
+  }
+
+  return (
     <>
-      <Link to={`/connection?from=${connection.from}&to=${connection.to}`} style={{color: 'black', textDecoration: 'none'}}>
-        <Card id='connection-card'>
-          <Card.Header>
-            Verbindung: {connection.id}
-            <Button variant="outline-primary" id='delete-button' onClick={() => {deleteConnection(connection.id)}}>Löschen</Button>{' '}
-          </Card.Header>
-          <Card.Body>
-            <div id="destinations">
+      <Card id='connection-card' onClick={(event) => {
+        navigateToDetail(event);
+      }}>
+        <Card.Body>
+          <Button variant='outline-primary' id='delete-button' onClick={() => {
+            deleteConnection(connection.id);
+          }}>
+            <span className='material-symbols-outlined'>delete</span>
+          </Button>{' '}
+          <div id='journey-content'>
+            <div id='destinations'>
               <div id='from'>
                 {connection.from}
               </div>
@@ -27,9 +38,9 @@ export default function ConnectionComponent({ connection, deleteConnection }) {
               <div id='connection-line'></div>
               <div className='dot'></div>
             </div>
-          </Card.Body>
-        </Card>
-      </Link>
+          </div>
+        </Card.Body>
+      </Card>
     </>
   );
 }
