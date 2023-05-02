@@ -1,18 +1,53 @@
 #connection-card {
-  height: 7rem;
   margin: 1em;
   font-size: 1.5em;
   box-shadow: rgba(0, 0, 0, 0.1) 0 10px 50px;
   cursor: pointer;
+  transition: ease-in-out 0.2s;
 }
 
-#journey-content {
-  width: 75%;
+#connection-card:hover {
+  transform: scale(103%);
+  box-shadow: rgba(0, 0, 0, 0.21) 0 10px 50px;
+  transition: ease-in-out 0.1s;
+}
+
+#card-header {
+  display: flex;
+  align-items: center;
+}
+
+#card-content {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#product-tag {
+  height: fit-content;
+  width: fit-content;
+  padding: 0.1em 0.4em 0.1em 0.4em;
+  font-size: 0.7em;
+  font-weight: 700;
+  font-style: italic;
+  color: #ffffff;
+  background-color: #EB0000;
+  margin-right: 1rem;
+  border-radius: 0.5em;
+  display: flex;
+  align-items: center;
+}
+
+#journey {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 }
 
 #destinations {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  width: 100%;
 }
 
 #from {
@@ -45,8 +80,8 @@
 }
 
 #delete-button {
-  margin-top: 1rem;
   color: #fff;
   background-color: #EB0000;
-  float: right;
+  margin-left: auto;
+  margin-right: 0.5rem;
 }
