@@ -15,6 +15,17 @@ export default function ConnectionsComponent() {
     });
   }, []);
 
+  function deleteConnection(id) {
+    connectionsService.deleteConnection(id).then((res) => {
+      console.info(res);
+    }).catch((err) => {
+      console.error(err);
+    });
+    setConnections(
+      connections.filter((connection) => connection.id !== id)
+    );
+  }
+
   return (
     <>
       {
@@ -25,7 +36,7 @@ export default function ConnectionsComponent() {
               return (
                 connections &&
                 <div key={connection.id}>
-                  <ConnectionComponent connection={connection}></ConnectionComponent>
+                  <ConnectionComponent connection={connection} deleteConnection={deleteConnection}></ConnectionComponent>
                 </div>
               );
             })
