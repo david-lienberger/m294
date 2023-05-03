@@ -1,4 +1,7 @@
 import axios from 'axios';
+import DashboardPage from '../pages/dashboard/dashboard.page';
+import React from 'react';
+import ReactDOM from 'react-dom'
 
 export default class AuthService {
   getUser(...params) {
@@ -11,6 +14,12 @@ export default class AuthService {
       },
     }).then(function (response) {
       const token = response.data.token;
+      if(token != null){
+        console.log(token);
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        const element = <DashboardPage/>;
+        root.render(element);
+      }
       return token;
     });
   }
