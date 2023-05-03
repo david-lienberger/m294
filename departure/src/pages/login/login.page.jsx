@@ -16,7 +16,7 @@ class LoginForm extends React.Component {
   handleSubmit = (values, { setSubmitting }) => {
     setTimeout(() => {
       const service = new AuthService();
-      service.getUser({email: values.email, password: values.password});
+      service.getUser(values.email, values.password);
       setSubmitting(false);
     }, 400);
   };
