@@ -1,13 +1,13 @@
 import axios from "axios";
 
 export default class AuthService {
-    getUser({email, password}) {
+    getUser(...params) {
         return axios({
             method: 'post',
             url: 'http://localhost:4242/api/login',
             data: {
-              email: {email},
-              password: {password}
+              email: params[0],
+              password: params[1]
             }
           });
     }
