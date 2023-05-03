@@ -18,7 +18,7 @@ export default function ConnectionComponent({ connection, deleteConnection }) {
       .catch((err) => {
         console.error(err);
       });
-  }, [connection]);
+  }, []);
 
   function navigateToDetail(event) {
     // To prevent that the app navigates if the delete-button gets clicked
