@@ -1,7 +1,7 @@
 import axios from 'axios';
 import DashboardPage from '../pages/dashboard/dashboard.page';
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 
 export default class AuthService {
   getUser(...params) {
