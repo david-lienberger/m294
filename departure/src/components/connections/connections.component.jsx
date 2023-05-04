@@ -27,7 +27,7 @@ export default function ConnectionsComponent() {
     );
   }
 
-  if (connections.length > 0) {
+  if (connections && connections.length > 0) {
     return (
       <>
         <div id='connection-list'>
