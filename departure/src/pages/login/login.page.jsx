@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import './login.scss';
+import './login.page.scss';
 import AuthService from '../../services/auth.service';
 import ConnectionsService from '../../services/connections.service';
 import { useNavigate } from 'react-router-dom';
