@@ -23,5 +23,3 @@ d
 4src/components/connections/connections.component.jsx,0\e\0ec4bee9dba060ea2cf71b630713736a6e90ccca
 c
 3src/components/connection/connection.component.scss,c\e\cef046c758734914835ba1494bfe46623d0826e5
-s
-Csrc/components/connection-details/connection-details.component.scss,d\6\d6a88d435c1d9642cc088395badb3cd4cf30b8e6

@@ -37,9 +37,11 @@ export default function ConnectionDetailsComponent() {
           </span>
             <div className='destination'>{detailedConnection.to.location.name}</div>
           </div>
-          <PassListContext.Provider value={detailedConnection.sections[0].journey.passList}>
-            <JourneyComponent />
-          </PassListContext.Provider>
+          <div id='journey-wrapper'>
+            <PassListContext.Provider value={detailedConnection.sections[0].journey.passList}>
+              <JourneyComponent />
+            </PassListContext.Provider>
+          </div>
         </div>
       </>
     );

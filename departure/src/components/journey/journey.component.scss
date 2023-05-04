@@ -7,14 +7,19 @@
 
 #station {
   display: flex;
+  align-items: center;
 }
 
 #station-wrapper {
-
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
 }
 
-#departure-time {
-
+.station-time {
+  margin-left: 0.8rem;
+  font-size: 0.9em;
+  font-weight: 600;
 }
 
 #station-name {
@@ -43,8 +48,8 @@
   background-color: black;
 }
 
-#journey-line {
-  height: 4rem;
+.journey-line {
+  height: 2.3rem;
   width: 0.1em;
   background-color: black;
 }
