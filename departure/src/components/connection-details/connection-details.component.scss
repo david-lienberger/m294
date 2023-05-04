@@ -19,9 +19,11 @@
 }
 
 #journey-wrapper {
-  width: 50%;
+  width: 30%;
 }
 
-#map-wrapper {
-  width: 40%;
+#map-information-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
 }
