@@ -17,12 +17,15 @@ export function JourneyComponent() {
                 <div id='roadmap'>
                   {
                     key > 0 &&
-                    <div className='journey-line'></div>
+                    <div className={station.departure || station.arrival ? 'journey-line':'journey-line journey-line-without-dot'}></div>
                   }
-                  <div id={key === 0 || key === passList.length - 1 ? 'dot-filled' : 'dot'}></div>
+                  {
+                    (station.departure || station.arrival) &&
+                    <div id={key === 0 || key === passList.length - 1 ? 'dot-filled' : 'dot'}></div>
+                  }
                   {
                     key !== passList.length - 1 &&
-                    <div className='journey-line'></div>
+                    <div className={station.departure || station.arrival ? 'journey-line':'journey-line journey-line-without-dot'}></div>
                   }
                 </div>
                 <div id='station-wrapper'>
