@@ -15,3 +15,13 @@ A
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
 W
 'src/pages/dashboard/dashboard.page.scss,2\3\23967ba2cc85d39703e45fa603e5f89e23eb1fa8
+Q
+!src/services/transport.service.js,a\0\a0bec819e48cd1d71ca8a587b5f38a4f6f6050eb
+V
+&src/pages/dashboard/dashboard.page.jsx,0\2\028053be1d54f2c0133858aad1ab63a556e60da7
+d
+4src/components/connections/connections.component.jsx,0\e\0ec4bee9dba060ea2cf71b630713736a6e90ccca
+c
+3src/components/connection/connection.component.scss,c\e\cef046c758734914835ba1494bfe46623d0826e5
+s
+Csrc/components/connection-details/connection-details.component.scss,d\6\d6a88d435c1d9642cc088395badb3cd4cf30b8e6
