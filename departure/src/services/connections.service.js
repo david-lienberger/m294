@@ -2,10 +2,8 @@ import axios from 'axios';
 
 export default class ConnectionsService {
 
-
-
   //TODO: remove this with interceptor
-  accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImVtYWlsIjoiYWxpY2VAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODMxMzY4OTYsImV4cCI6MTY4MzE0NDA5Nn0.wpLPeUUenGKYljY4RNqR7hxDi0v8rpFfY0lMCWT7CO0';
+  accessToken = JSON.parse(sessionStorage.getItem("token")) ;
 
   getConnections() {
     return axios.get('http://localhost:4242/api/connections', {

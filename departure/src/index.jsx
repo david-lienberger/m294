@@ -1,7 +1,7 @@
 import './index.scss';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import LoginPage from './pages/login/login.page';
+import DashboardPage from './pages/dashboard/dashboard.page';
 import App from './pages/login/login.page';
 import { RouterProvider } from 'react-router';
 import { createBrowserRouter } from 'react-router-dom';
@@ -9,11 +9,11 @@ import ConnectionDetailsComponent from './components/connection-details/connecti
 
 const router = createBrowserRouter([
   {
-    path: "/login",
-    element: <LoginPage/>
+    path: "/",
+    element: <DashboardPage/>
   },
   {
-    path: "/",
+    path: "/login",
     element: <App />
   },
   {
