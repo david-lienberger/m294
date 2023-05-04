@@ -20,9 +20,7 @@ export function InformationComponent() {
       });
   }, []);
 
-  console.log(stationInformation);
-
-  const rentBike = () => {
+  const rentBicycle = () => {
     if (stationInformation['veloparking_abschliessbar'] && parseInt(stationInformation['veloparking_abschliessbar']) > 0) {
       return (
         <>
@@ -36,7 +34,7 @@ export function InformationComponent() {
     }
   }
 
-  const bycicle = () => {
+  const bicycle = () => {
     if (stationInformation['mietvelo_anzahl'] && parseInt(stationInformation['mietvelo_anzahl']) > 0) {
       return (
         <>
@@ -74,7 +72,7 @@ export function InformationComponent() {
           <div className='information-detail-wrapper'>
             <h5>Taxi</h5>
             <div className='detail-field'><b>Info:</b> {stationInformation['railtaxiinfo']}</div>
-            <div className='detail-field'><b>Tel.-Nummer:</b> {stationInformation['railtaxitext']}</div>
+            <div className='detail-field'><b>Telefon:</b> {stationInformation['railtaxitext']}</div>
           </div>
         </>
       );
@@ -84,10 +82,10 @@ export function InformationComponent() {
   if (stationInformation) {
     return (
       <>
-        <div id='information'>
+        <div className='information'>
           <h4>Nützliche Informationen zu Ihrem Reiseziel:</h4>
-          {bycicle()}
-          {rentBike()}
+          {bicycle()}
+          {rentBicycle()}
           {parkAndRail()}
           {taxi()}
         </div>
@@ -98,7 +96,9 @@ export function InformationComponent() {
 
   return (
     <>
-
+      <div className='information'>
+        Leider können Ihnen keine weiteren Informationen angezeigt werden.
+      </div>
     </>
   );
 }

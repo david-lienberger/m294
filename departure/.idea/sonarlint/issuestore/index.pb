@@ -17,5 +17,3 @@ W
 'src/pages/dashboard/dashboard.page.scss,2\3\23967ba2cc85d39703e45fa603e5f89e23eb1fa8
 V
 &src/pages/dashboard/dashboard.page.jsx,0\2\028053be1d54f2c0133858aad1ab63a556e60da7
-d
-4src/components/connections/connections.component.jsx,0\e\0ec4bee9dba060ea2cf71b630713736a6e90ccca
