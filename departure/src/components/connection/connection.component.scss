@@ -1,9 +1,10 @@
 #connection-card {
   margin: 1em;
-  font-size: 1.5em;
+  font-size: 1.4em;
   box-shadow: rgba(0, 0, 0, 0.1) 0 10px 50px;
   cursor: pointer;
   transition: ease-in-out 0.2s;
+  min-height: 7rem;
 }
 
 #connection-card:hover {
@@ -48,6 +49,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  font-size: 0.9em;
 }
 
 #from {
@@ -56,6 +58,12 @@
 
 #to {
   margin-left: auto;
+}
+
+#delay {
+  margin-left: 0.5rem;
+  color: #EB0000;
+  font-weight: 700;
 }
 
 #line {
