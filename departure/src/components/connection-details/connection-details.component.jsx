@@ -5,6 +5,7 @@ import './connection-details.component.scss';
 import TransportService from '../../services/transport.service';
 import { JourneyComponent } from '../journey/journey.component';
 import { Placeholder } from 'react-bootstrap';
+import { MapComponent } from '../map/map.component';
 
 export const PassListContext = createContext(undefined);
 
@@ -37,10 +38,17 @@ export default function ConnectionDetailsComponent() {
           </span>
             <div className='destination'>{detailedConnection.to.location.name}</div>
           </div>
-          <div id='journey-wrapper'>
-            <PassListContext.Provider value={detailedConnection.sections[0].journey.passList}>
-              <JourneyComponent />
-            </PassListContext.Provider>
+          <div id='details-content'>
+            <div id='journey-wrapper'>
+              <PassListContext.Provider value={detailedConnection.sections[0].journey.passList}>
+                <JourneyComponent />
+              </PassListContext.Provider>
+            </div>
+            <div id='map-wrapper'>
+              <PassListContext.Provider value={detailedConnection.sections[0].journey.passList}>
+                <MapComponent />
+              </PassListContext.Provider>
+            </div>
           </div>
         </div>
       </>

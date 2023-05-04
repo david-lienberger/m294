@@ -21,5 +21,3 @@ V
 &src/pages/dashboard/dashboard.page.jsx,0\2\028053be1d54f2c0133858aad1ab63a556e60da7
 d
 4src/components/connections/connections.component.jsx,0\e\0ec4bee9dba060ea2cf71b630713736a6e90ccca
-c
-3src/components/connection/connection.component.scss,c\e\cef046c758734914835ba1494bfe46623d0826e5
