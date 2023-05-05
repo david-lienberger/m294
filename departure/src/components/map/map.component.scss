@@ -1,0 +1,14 @@
+#map {
+  height: 20rem;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 10px 50px;
+  border-radius: 0.5em;
+  transition: 0.2s;
+}
+
+#map:hover {
+  transform: scale(103%);
+  box-shadow: rgba(0, 0, 0, 0.21) 0 10px 50px;
+  transition: ease-in-out 0.1s;
+}
+

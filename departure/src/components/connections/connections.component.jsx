@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ConnectionsService from '../../services/connections.service';
 import ConnectionComponent from '../connection/connection.component';
+import { Alert } from 'react-bootstrap';
 
 export default function ConnectionsComponent() {
   const [connections, setConnections] = useState(undefined);
@@ -26,15 +27,13 @@ export default function ConnectionsComponent() {
     );
   }
 
-  return (
-    <>
-      {
-        connections &&
+  if (connections && connections.length > 0) {
+    return (
+      <>
         <div id='connection-list'>
           {
             connections.map((connection) => {
               return (
-                connections &&
                 <div key={connection.id}>
                   <ConnectionComponent connection={connection} deleteConnection={deleteConnection}></ConnectionComponent>
                 </div>
@@ -42,8 +41,14 @@ export default function ConnectionsComponent() {
             })
           }
         </div>
-      }
-    </>
+      </>
+    );
+  }
 
+  return (
+    <>
+    <Alert key={1} variant={'primary'}>Es können keine Verbindungen geladen werden.</Alert>
+    </>
   );
+
 }
