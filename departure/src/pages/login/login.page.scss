@@ -4,6 +4,14 @@
     margin-right: auto;
     margin-top: 10%;
     margin-bottom: auto;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 10px 50px;
+    border-width: 1px;
+    border-radius: 0.5em;
+    border-color: rgb(195, 195, 195);
+    border-style: solid;
+    padding: 1em;
+    justify-content: center;
+    display: flex;
 }
 .form-group{
     margin-bottom: 1em;
