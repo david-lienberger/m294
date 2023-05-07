@@ -45,7 +45,7 @@ export default function ConnectionDetailsComponent() {
               <PassListContext.Provider value={detailedConnection.sections[0].journey.passList}>
                 <JourneyComponent />
               </PassListContext.Provider>
-              <Button variant='outline' id='back-button' onClick={() => {navigate(-1)}}>
+              <Button variant='primary' id='back-button' onClick={() => {navigate(-1)}}>
                 Zurück
               </Button>
             </div>

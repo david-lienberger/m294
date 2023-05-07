@@ -43,7 +43,7 @@ export default function ConnectionComponent({ connection, deleteConnection }) {
               </span>
                 {detailedConnection.to.location.name}
               </div>
-              <Button variant='outline-primary' id='delete-button' onClick={() => {
+              <Button variant='secondary' id='delete-button' onClick={() => {
                 deleteConnection(connection.id);
               }}>
                 <span className='material-symbols-outlined'>delete</span>
