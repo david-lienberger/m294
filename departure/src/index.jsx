@@ -10,6 +10,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import ConnectionDetailsComponent from './pages/connection-details/connection-details.component';
 import SearchResultPage from './pages/search-result/search-result.page';
 import { ToastContainer } from 'react-toastify';
+import NotFoundPage from './pages/not-found/not-found.page';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/search",
     element: <SearchResultPage />
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />
   }
 ]);
 
