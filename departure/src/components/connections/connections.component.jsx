@@ -15,11 +15,9 @@ export default function ConnectionsComponent({ connectionsList }) {
   }, [connectionsList]);
 
   function deleteConnection(id) {
-    console.log(id);
-    console.log(connections);
     connectionsService.deleteConnection(id).then((res) => {
       console.info(res);
-      toastService.emitToast("Verbindung gelöscht.");
+      toastService.emitToastSuccess("Verbindung gelöscht.", 'success');
     }).catch((err) => {
       console.error(err);
     });
@@ -31,7 +29,7 @@ export default function ConnectionsComponent({ connectionsList }) {
   function saveConnection(from, to) {
     connectionsService.addConnection(from, to).then((res) => {
       console.info(res);
-      toastService.emitToast("Verbindung gespeichert.");
+      toastService.emitToastSuccess("Verbindung gespeichert.", 'success');
     }).catch((err) => {
       console.error(err);
     });

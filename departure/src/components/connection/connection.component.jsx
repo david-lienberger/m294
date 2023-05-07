@@ -23,7 +23,7 @@ export default function ConnectionComponent({ connection, deleteConnection, save
         console.error(err);
       });
     }
-  }, []);
+  }, [connection]);
 
   function performActionButton() {
     // If not on search-result-page
@@ -46,7 +46,6 @@ export default function ConnectionComponent({ connection, deleteConnection, save
   if (detailedConnection) {
     return (
       <>
-        <span>{connection.id}</span>
         <Card id='connection-card' onClick={(event) => {
           navigateToDetail(event);
         }}>

@@ -1,12 +1,13 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import './connection-details.component.scss';
 import TransportService from '../../services/transport.service';
 import { JourneyComponent } from '../../components/journey/journey.component';
-import { Button, Placeholder } from 'react-bootstrap';
+import { Placeholder } from 'react-bootstrap';
 import { MapComponent } from '../../components/map/map.component';
 import { InformationComponent } from '../../components/icons/information.component';
+import BackButtonComponent from '../../components/back-button/back-button.component';
 
 export const PassListContext = createContext(undefined);
 
@@ -14,7 +15,6 @@ export default function ConnectionDetailsComponent() {
   const [searchParams] = useSearchParams();
   const transportService = new TransportService();
   const [detailedConnection, setDetailedConnection] = useState(undefined);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const from = searchParams.get('from');
@@ -46,9 +46,7 @@ export default function ConnectionDetailsComponent() {
               <PassListContext.Provider value={detailedConnection.sections[0].journey.passList}>
                 <JourneyComponent />
               </PassListContext.Provider>
-              <Button variant='primary' id='back-button' onClick={() => {navigate(-1)}}>
-                Zurück
-              </Button>
+              <BackButtonComponent />
             </div>
             <div id='map-information-wrapper'>
               <PassListContext.Provider value={detailedConnection.sections[0].journey.passList}>

@@ -2,8 +2,9 @@ import { toast } from 'react-toastify';
 
 export default class ToastService {
 
-  emitToast(message) {
-    toast.success(message, {
+  emitToastSuccess(message, type) {
+    toast(message, {
+      type: type,
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,

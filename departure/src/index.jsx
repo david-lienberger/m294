@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     element: <ConnectionDetailsComponent />
   },
   {
-    path: "/result",
+    path: "/search",
     element: <SearchResultPage />
   }
 ]);

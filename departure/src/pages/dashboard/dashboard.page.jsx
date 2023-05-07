@@ -16,16 +16,16 @@ export default function DashboardPage() {
           id: element.id,
           from: {
             location: {
-              name: element.from
-            }
+              name: element.from,
+            },
           },
           to: {
             location: {
-              name: element.to
-            }
-          }
-        }
-      })
+              name: element.to,
+            },
+          },
+        };
+      });
       setConnections(mappedConnections);
     })
       .catch((err) => {
@@ -37,7 +37,8 @@ export default function DashboardPage() {
     <>
       <div id='flex'>
         <div id='connections'>
-            <ConnectionsComponent connectionsList={connections} />
+          <h2>Ihre gespeicherten Verbindungen</h2>
+          <ConnectionsComponent connectionsList={connections} />
         </div>
         <div id='search'>
           <SearchComponent />

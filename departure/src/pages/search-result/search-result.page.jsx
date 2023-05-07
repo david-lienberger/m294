@@ -4,6 +4,7 @@ import TransportService from '../../services/transport.service';
 import ConnectionsComponent from '../../components/connections/connections.component';
 import './search-result.page.scss';
 import moment from 'moment';
+import BackButtonComponent from '../../components/back-button/back-button.component';
 
 export default function SearchResultPage() {
   const [searchParams] = useSearchParams();
@@ -21,6 +22,7 @@ export default function SearchResultPage() {
 
   return (
     <>
+      <BackButtonComponent />
       <div id='search-res-list'>
         <div id='search-res-header'>
           <div id='search-res-destinations'>
