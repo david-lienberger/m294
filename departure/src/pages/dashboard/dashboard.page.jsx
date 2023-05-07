@@ -1,11 +1,9 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ConnectionsComponent from '../../components/connections/connections.component';
 import SearchComponent from '../../components/search/search.component';
 
 import './dashboard.page.scss';
 import ConnectionsService from '../../services/connections.service';
-
-export const ConnectionsContext = createContext(undefined);
 
 export default function DashboardPage() {
   const connectionsService = new ConnectionsService();
@@ -13,17 +11,17 @@ export default function DashboardPage() {
 
   useEffect(() => {
     connectionsService.getConnections().then((res) => {
-      const mappedConnections = res.data.map((e, key) => {
+      const mappedConnections = res.data.map((element) => {
         return {
-          id: key,
+          id: element.id,
           from: {
             location: {
-              name: e.from
+              name: element.from
             }
           },
           to: {
             location: {
-              name: e.to
+              name: element.to
             }
           }
         }
@@ -39,9 +37,7 @@ export default function DashboardPage() {
     <>
       <div id='flex'>
         <div id='connections'>
-          <ConnectionsContext.Provider value={connections}>
-            <ConnectionsComponent />
-          </ConnectionsContext.Provider>
+            <ConnectionsComponent connectionsList={connections} />
         </div>
         <div id='search'>
           <SearchComponent />

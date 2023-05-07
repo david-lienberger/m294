@@ -1,27 +1,25 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ConnectionsService from '../../services/connections.service';
 import ConnectionComponent from '../connection/connection.component';
 import { Alert } from 'react-bootstrap';
-import { ConnectionsContext } from '../../pages/dashboard/dashboard.page';
 import ToastService from '../../services/toast.service';
+import './connections.component.scss';
 
 export default function ConnectionsComponent({ connectionsList }) {
-  const connectionsContext = useContext(ConnectionsContext);
   const connectionsService = new ConnectionsService();
   const toastService = new ToastService();
   const [connections, setConnections] = useState(undefined);
 
   useEffect(() => {
-    if (connectionsContext) {
-      setConnections(connectionsContext);
-    } else {
       setConnections(connectionsList);
-    }
-  }, [connectionsContext, connectionsList]);
+  }, [connectionsList]);
 
   function deleteConnection(id) {
+    console.log(id);
+    console.log(connections);
     connectionsService.deleteConnection(id).then((res) => {
       console.info(res);
+      toastService.emitToast("Verbindung gelöscht.");
     }).catch((err) => {
       console.error(err);
     });
@@ -33,7 +31,7 @@ export default function ConnectionsComponent({ connectionsList }) {
   function saveConnection(from, to) {
     connectionsService.addConnection(from, to).then((res) => {
       console.info(res);
-      toastService.emitToast("Verbindung gespeichert.")
+      toastService.emitToast("Verbindung gespeichert.");
     }).catch((err) => {
       console.error(err);
     });

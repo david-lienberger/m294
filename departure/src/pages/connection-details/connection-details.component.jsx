@@ -19,7 +19,8 @@ export default function ConnectionDetailsComponent() {
   useEffect(() => {
     const from = searchParams.get('from');
     const to = searchParams.get('to');
-    transportService.getConnection(from, to)
+    const departureTime = searchParams.get('departureTime');
+    transportService.getConnectionByTime(from, to, departureTime)
       .then((res) => {
         setDetailedConnection(res.data.connections[0]);
       })

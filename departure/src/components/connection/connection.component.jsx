@@ -30,7 +30,6 @@ export default function ConnectionComponent({ connection, deleteConnection, save
     if (!searchParams.size > 0) {
       deleteConnection(connection.id);
     } else {
-      console.log('save');
       const from = connection.from.location.name;
       const to = connection.to.location.name;
       saveConnection(from, to);
@@ -40,13 +39,14 @@ export default function ConnectionComponent({ connection, deleteConnection, save
   function navigateToDetail(event) {
     // To prevent that the app navigates if the delete-button gets clicked
     if (event.target.tagName.toString() === 'DIV') {
-      navigate(`/connection?from=${detailedConnection.from.location.name}&to=${detailedConnection.to.location.name}`);
+      navigate(`/connection?from=${detailedConnection.from.location.name}&to=${detailedConnection.to.location.name}&departureTime=${detailedConnection.from.departure}`);
     }
   }
 
   if (detailedConnection) {
     return (
       <>
+        <span>{connection.id}</span>
         <Card id='connection-card' onClick={(event) => {
           navigateToDetail(event);
         }}>

@@ -6,6 +6,10 @@ export default class TransportService {
     return axios.get(`http://transport.opendata.ch/v1/connections?from=${from}&to=${to}&limit=5`);
   }
 
+  getConnectionByTime(from, to, time) {
+    return axios.get(`http://transport.opendata.ch/v1/connections?from=${from}&to=${to}&time=${time}&limit=5`);
+  }
+
   getStationInformation(xCoordination, yCoordination) {
     return axios.get(this.endPointURL(xCoordination, yCoordination));
   }
