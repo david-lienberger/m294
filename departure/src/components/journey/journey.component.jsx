@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { PassListContext } from '../connection-details/connection-details.component';
+import { PassListContext } from '../../pages/connection-details/connection-details.component';
 
 import './journey.component.scss';
 import moment from 'moment';

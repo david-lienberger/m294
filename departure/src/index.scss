@@ -9,8 +9,7 @@ html {
 
 $theme-colors: (
         "primary": v.$primary-color,
-        "secondary": v.$secondary-color,
-        "danger": #ff4136
+        "secondary": v.$secondary-color
 );
 
 @import "~bootstrap/scss/bootstrap";

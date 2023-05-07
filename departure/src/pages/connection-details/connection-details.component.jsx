@@ -3,10 +3,10 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import './connection-details.component.scss';
 import TransportService from '../../services/transport.service';
-import { JourneyComponent } from '../journey/journey.component';
+import { JourneyComponent } from '../../components/journey/journey.component';
 import { Button, Placeholder } from 'react-bootstrap';
-import { MapComponent } from '../map/map.component';
-import { InformationComponent } from '../icons/information.component';
+import { MapComponent } from '../../components/map/map.component';
+import { InformationComponent } from '../../components/icons/information.component';
 
 export const PassListContext = createContext(undefined);
 

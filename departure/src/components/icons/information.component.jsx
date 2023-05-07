@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 
 import './information.component.scss';
-import { PassListContext } from '../connection-details/connection-details.component';
+import { PassListContext } from '../../pages/connection-details/connection-details.component';
 import TransportService from '../../services/transport.service';
 
 export function InformationComponent() {
