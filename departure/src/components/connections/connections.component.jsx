@@ -11,25 +11,25 @@ export default function ConnectionsComponent({ connectionsList }) {
   const [connections, setConnections] = useState(undefined);
 
   useEffect(() => {
-      setConnections(connectionsList);
+    setConnections(connectionsList);
   }, [connectionsList]);
 
   function deleteConnection(id) {
     connectionsService.deleteConnection(id).then((res) => {
       console.info(res);
-      toastService.emit("Verbindung gelöscht.", 'success');
+      toastService.emit('Verbindung gelöscht.', 'success');
     }).catch((err) => {
       console.error(err);
     });
     setConnections(
-      connections.filter((connection) => connection.id !== id)
+      connections.filter((connection) => connection.id !== id),
     );
   }
 
   function saveConnection(from, to) {
     connectionsService.addConnection(from, to).then((res) => {
       console.info(res);
-      toastService.emit("Verbindung gespeichert.", 'success');
+      toastService.emit('Verbindung gespeichert.', 'success');
     }).catch((err) => {
       console.error(err);
     });
@@ -43,7 +43,8 @@ export default function ConnectionsComponent({ connectionsList }) {
             connections.map((connection, key) => {
               return (
                 <div key={key}>
-                  <ConnectionComponent connection={connection} deleteConnection={deleteConnection} saveConnection={saveConnection}></ConnectionComponent>
+                  <ConnectionComponent connection={connection} deleteConnection={deleteConnection}
+                                       saveConnection={saveConnection}></ConnectionComponent>
                 </div>
               );
             })
@@ -55,7 +56,7 @@ export default function ConnectionsComponent({ connectionsList }) {
 
   return (
     <>
-    <Alert key={1} variant={'primary'}>Es können keine Verbindungen geladen werden.</Alert>
+      <Alert key={1} variant={'primary'}>Es können keine Verbindungen geladen werden.</Alert>
     </>
   );
 

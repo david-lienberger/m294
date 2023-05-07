@@ -41,6 +41,7 @@ export default function ConnectionDetailsComponent() {
       setConnectionSaved(!connectionSaved);
       if (connectionSaved) {
         toastService.emit("Verbindung entfernt.", 'success');
+        // If the provided departure-fuek-API would return the ID of the created object, you could handle this.
       } else {
         connectionsService.addConnection(detailedConnection.from.location.name, detailedConnection.to.location.name).then((res) => {
           console.info(res);
@@ -65,7 +66,7 @@ export default function ConnectionDetailsComponent() {
           </span>
             <div className='destination'>{detailedConnection.to.location.name}</div>
             <div id='save-button-wrapper'>
-              <OverlayTrigger overlay={<Tooltip>{connectionSaved ? 'Diese Verbindung entfernen.' : 'Diese Verbindung speichern.'}</Tooltip>} trigger={'hover'} placement={'right'}>
+              <OverlayTrigger overlay={<Tooltip>{connectionSaved ? 'Diese Verbindung entfernen.' : 'Diese Verbindung speichern.'}</Tooltip>} trigger={['focus', 'hover']} placement={'right'}>
               <Button variant={'primary'} onClick={() => save()}>
                 {
                   connectionSaved ?
