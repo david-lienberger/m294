@@ -3,10 +3,12 @@ import ConnectionsService from '../../services/connections.service';
 import ConnectionComponent from '../connection/connection.component';
 import { Alert } from 'react-bootstrap';
 import { ConnectionsContext } from '../../pages/dashboard/dashboard.page';
+import ToastService from '../../services/toast.service';
 
 export default function ConnectionsComponent({ connectionsList }) {
   const connectionsContext = useContext(ConnectionsContext);
   const connectionsService = new ConnectionsService();
+  const toastService = new ToastService();
   const [connections, setConnections] = useState(undefined);
 
   useEffect(() => {
@@ -28,9 +30,10 @@ export default function ConnectionsComponent({ connectionsList }) {
     );
   }
 
-  function saveConnection(id) {
-    connectionsService.addConnection(id).then((res) => {
+  function saveConnection(from, to) {
+    connectionsService.addConnection(from, to).then((res) => {
       console.info(res);
+      toastService.emitToast("Verbindung gespeichert.")
     }).catch((err) => {
       console.error(err);
     });

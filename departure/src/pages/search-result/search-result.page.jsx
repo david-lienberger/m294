@@ -16,8 +16,6 @@ export default function SearchResultPage() {
     });
   }, []);
 
-  console.log(connections);
-
   return (
     <>
       <div id='search-res-list'>

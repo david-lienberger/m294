@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './connection.component.scss';
 import { Button, Card, Placeholder } from 'react-bootstrap';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import TransportService from '../../services/transport.service';
 import moment from 'moment';
+import TransportService from '../../services/transport.service';
 
 export default function ConnectionComponent({ connection, deleteConnection, saveConnection }) {
   const navigate = useNavigate();
@@ -12,13 +12,17 @@ export default function ConnectionComponent({ connection, deleteConnection, save
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    transportService.getConnection(connection.from.location.name, connection.to.location.name)
+    if ('products' in connection) {
+      setDetailedConnection(connection);
+    } else {
+      transportService.getConnection(connection.from.location.name, connection.to.location.name)
       .then((res) => {
         setDetailedConnection(res.data.connections[0]);
       })
       .catch((err) => {
         console.error(err);
       });
+    }
   }, []);
 
   function performActionButton() {
@@ -26,7 +30,10 @@ export default function ConnectionComponent({ connection, deleteConnection, save
     if (!searchParams.size > 0) {
       deleteConnection(connection.id);
     } else {
-      saveConnection(connection.id);
+      console.log('save');
+      const from = connection.from.location.name;
+      const to = connection.to.location.name;
+      saveConnection(from, to);
     }
   }
 

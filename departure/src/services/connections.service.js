@@ -3,7 +3,7 @@ import axios from 'axios';
 export default class ConnectionsService {
 
   //TODO: remove this with interceptor
-  accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiYWxpY2VAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODM0NzcwMDUsImV4cCI6MTY4MzQ4NDIwNX0.8fc9ZorG94u0bvGzlC1Xf4F8WD-wsTa2SYZVfxKcM-w';
+  accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiYWxpY2VAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODM0ODQ1NTUsImV4cCI6MTY4MzQ5MTc1NX0.YZEkCgtPPQqNpggsF3nWll8hJEQISjkV_mk3E2JLMZ8';
 
   getConnections() {
     return axios.get('http://localhost:4242/api/connections', {
