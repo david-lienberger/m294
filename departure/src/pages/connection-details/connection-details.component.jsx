@@ -46,7 +46,9 @@ export default function ConnectionDetailsComponent() {
               <PassListContext.Provider value={detailedConnection.sections[0].journey.passList}>
                 <JourneyComponent />
               </PassListContext.Provider>
-              <BackButtonComponent />
+              <div id='back-button-connection-details'>
+                <BackButtonComponent />
+              </div>
             </div>
             <div id='map-information-wrapper'>
               <PassListContext.Provider value={detailedConnection.sections[0].journey.passList}>

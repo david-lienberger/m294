@@ -8,7 +8,9 @@ export default function NotFoundPage() {
     <div id='not-found-wrapper'>
       <h1>404 Error.</h1>
       <h4>Die angefragte Seite wurde nicht gefunden.</h4>
-      <BackButtonComponent />
+      <div id='back-button-not-found'>
+        <BackButtonComponent />
+      </div>
     </div>
     </>
   );

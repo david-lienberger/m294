@@ -22,7 +22,9 @@ export default function SearchResultPage() {
 
   return (
     <>
-      <BackButtonComponent />
+      <div id='back-button-search-result'>
+        <BackButtonComponent />
+      </div>
       <div id='search-res-list'>
         <div id='search-res-header'>
           <div id='search-res-destinations'>
