@@ -4,11 +4,12 @@ import { useSearchParams } from 'react-router-dom';
 import './connection-details.component.scss';
 import TransportService from '../../services/transport.service';
 import { JourneyComponent } from '../../components/journey/journey.component';
-import { Button, Placeholder } from 'react-bootstrap';
+import { Button, OverlayTrigger, Placeholder, Tooltip } from 'react-bootstrap';
 import { MapComponent } from '../../components/map/map.component';
 import { InformationComponent } from '../../components/icons/information.component';
 import BackButtonComponent from '../../components/back-button/back-button.component';
 import ToastService from '../../services/toast.service';
+import ConnectionsService from '../../services/connections.service';
 
 export const PassListContext = createContext(undefined);
 
@@ -16,6 +17,7 @@ export default function ConnectionDetailsComponent() {
   const [searchParams] = useSearchParams();
   const transportService = new TransportService();
   const toastService = new ToastService();
+  const connectionsService = new ConnectionsService();
   const [detailedConnection, setDetailedConnection] = useState(undefined);
   const [connectionSaved, setConnectionSaved] = useState(false);
   const [lastAction, setLastAction] = useState(new Date());
@@ -40,7 +42,10 @@ export default function ConnectionDetailsComponent() {
       if (connectionSaved) {
         toastService.emit("Verbindung entfernt.", 'success');
       } else {
-        toastService.emit("Verbindung gespeichert.", 'success');
+        connectionsService.addConnection(detailedConnection.from.location.name, detailedConnection.to.location.name).then((res) => {
+          console.info(res);
+          toastService.emit("Verbindung gespeichert.", 'success');
+        })
       }
       setLastAction(new Date());
     } else {
@@ -60,12 +65,14 @@ export default function ConnectionDetailsComponent() {
           </span>
             <div className='destination'>{detailedConnection.to.location.name}</div>
             <div id='save-button-wrapper'>
+              <OverlayTrigger overlay={<Tooltip>{connectionSaved ? 'Diese Verbindung entfernen.' : 'Diese Verbindung speichern.'}</Tooltip>} trigger={'hover'} placement={'right'}>
               <Button variant={'primary'} onClick={() => save()}>
                 {
                   connectionSaved ?
                     <span id='add-icon' className="material-symbols-outlined">done</span> : <span id='done-icon' className="material-symbols-outlined">add</span>
                 }
               </Button>
+              </OverlayTrigger>
             </div>
           </div>
           <div id='details-content'>
