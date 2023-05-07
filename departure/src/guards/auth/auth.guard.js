@@ -7,7 +7,7 @@ export default function AuthGuard({auth, children}) {
   const toastService = new ToastService();
 
   if (!auth.isAuthenticated) {
-    toastService.emitToastSuccess("Sie sind nicht angemeldet.", 'error');
+    toastService.emit("Sie sind nicht angemeldet.", 'error');
     return (<NotFoundPage />);
   }
 

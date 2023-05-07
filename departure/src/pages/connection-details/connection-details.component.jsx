@@ -4,17 +4,22 @@ import { useSearchParams } from 'react-router-dom';
 import './connection-details.component.scss';
 import TransportService from '../../services/transport.service';
 import { JourneyComponent } from '../../components/journey/journey.component';
-import { Placeholder } from 'react-bootstrap';
+import { Button, Placeholder } from 'react-bootstrap';
 import { MapComponent } from '../../components/map/map.component';
 import { InformationComponent } from '../../components/icons/information.component';
 import BackButtonComponent from '../../components/back-button/back-button.component';
+import ToastService from '../../services/toast.service';
 
 export const PassListContext = createContext(undefined);
 
 export default function ConnectionDetailsComponent() {
   const [searchParams] = useSearchParams();
   const transportService = new TransportService();
+  const toastService = new ToastService();
   const [detailedConnection, setDetailedConnection] = useState(undefined);
+  const [connectionSaved, setConnectionSaved] = useState(false);
+  const [lastAction, setLastAction] = useState(new Date());
+  const TIME_TO_WAIT = -5000;
 
   useEffect(() => {
     const from = searchParams.get('from');
@@ -29,6 +34,20 @@ export default function ConnectionDetailsComponent() {
       });
   }, []);
 
+  function save() {
+    if (lastAction - new Date() < TIME_TO_WAIT) {
+      setConnectionSaved(!connectionSaved);
+      if (connectionSaved) {
+        toastService.emit("Verbindung entfernt.", 'success');
+      } else {
+        toastService.emit("Verbindung gespeichert.", 'success');
+      }
+      setLastAction(new Date());
+    } else {
+      toastService.emit("Bitte warten Sie mit dieser Aktion.", 'warning');
+    }
+  }
+
   if (detailedConnection) {
     return (
       <>
@@ -40,6 +59,14 @@ export default function ConnectionDetailsComponent() {
             trending_flat
           </span>
             <div className='destination'>{detailedConnection.to.location.name}</div>
+            <div id='save-button-wrapper'>
+              <Button variant={'primary'} onClick={() => save()}>
+                {
+                  connectionSaved ?
+                    <span id='add-icon' className="material-symbols-outlined">done</span> : <span id='done-icon' className="material-symbols-outlined">add</span>
+                }
+              </Button>
+            </div>
           </div>
           <div id='details-content'>
             <div id='journey-wrapper'>

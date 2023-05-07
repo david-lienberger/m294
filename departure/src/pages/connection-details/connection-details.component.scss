@@ -32,7 +32,17 @@
   width: 60%;
 }
 
-#back-button-connection-details {
+#back-button-connection-details > button {
   margin-top: 3rem;
   margin-bottom: 2rem;
+  background-color: v.$secondary-color;
+  border: none;
+}
+
+#add-icon {
+
+}
+
+#done-icon {
+  transition: 0.5s;
 }

@@ -2,7 +2,7 @@ import { toast } from 'react-toastify';
 
 export default class ToastService {
 
-  emitToastSuccess(message, type) {
+  emit(message, type) {
     toast(message, {
       type: type,
       position: "top-right",

@@ -15,8 +15,6 @@ A
 -src/components/journey/journey.component.scss,7\7\77bcbcb034a0d2c3c6c8b4dbc7d52a821438d8de
 U
 %src/components/map/map.component.scss,5\9\59ef6f3c764f0085dfc910d8667a8d66f5cc639f
-T
-$src/components/map/map.component.jsx,d\4\d43d5658fc7cbbc4550b5d5a61a0773ec4c41fbf
 _
 /src/components/icons/information.component.scss,f\a\fa51a271a1457359faee7f9620ba4fa76db435d6
 ^
