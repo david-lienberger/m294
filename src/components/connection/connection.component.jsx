@@ -12,6 +12,7 @@ export default function ConnectionComponent({ connection, deleteConnection, save
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
+    // If its already detailed
     if ('products' in connection) {
       setDetailedConnection(connection);
     } else {
@@ -90,7 +91,6 @@ export default function ConnectionComponent({ connection, deleteConnection, save
                     moment(detailedConnection.to.arrival).format('H:mm')
                   }
               </div>
-
             </div>
             <div id="line">
               <div className="dot" />

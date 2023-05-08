@@ -56,5 +56,8 @@
   "SEARCH": {
     "HEADING": "Verbindungssuche",
     "SUBMIT": "Suchen"
+  },
+  "SEARCH_RESULT": {
+    "DATE_IS_TOMORROW": "Die angezeigten Verbindungen fahren erst Morgen."
   }
 }
