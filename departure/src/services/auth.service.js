@@ -19,4 +19,20 @@ export default class AuthService {
       return "Error";
     }
   }
+
+  saveAccessToken(token) {
+    sessionStorage.setItem('token', token);
+  }
+
+  getAccessToken() {
+    return sessionStorage.getItem('token');
+  }
+
+  saveAuthState(state) {
+    sessionStorage.setItem('isAuthenticated', state);
+  }
+
+  getAuthState() {
+    return sessionStorage.getItem('isAuthenticated');
+  }
 }

@@ -15,29 +15,21 @@
 }
 .form-group{
     margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
 }
 h1{
     margin-left: 1em;
     margin-top: 1em;
-}
-.btn-primary {
-    color: #fff;
-    background-color: #EB0000;
-    background-color: cutom-color;
-    border-color: #EB0000;
-    border-color: cutom-cor;
 }
 
 .Input{
     border-radius: 0.2em;
 }
 .p{
-    margin-bottom: 0.5em;
+    margin-bottom: 0em;
 }
-
-.Error{
-    width: 100%;
-    height: 2em;
-    background-color: #EB0000;
-    color: black;
+.label {
+    font-weight: 600;
+    font-size: 1.2em;
 }

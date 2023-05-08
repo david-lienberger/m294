@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import './login.page.scss';
 import AuthService from '../../services/auth.service';
-import ConnectionsService from '../../services/connections.service';
+import ToastService from '../../services/toast.service';
 import { useNavigate } from 'react-router-dom';
-import Error from '../../components/error/error.component';
 
 const loginSchema = Yup.object().shape({
   password: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
@@ -13,33 +12,27 @@ const loginSchema = Yup.object().shape({
 });
 
 export default function LoginPage() {
-  const[isAutheticated, setisAutheticated] = useState();
+  const toastService = new ToastService();
   const navigate = useNavigate();
   let token;
-  let error = false;
   const handleSubmit = (values, { setSubmitting }) => {
     const service = new AuthService();
     service.getUser(values.email, values.password).then((res) => {
       token = res;
-      if (token === "Error") {
-        error = true;
-        navigate('/login');
-      } 
-      if(token !== "Error") {
-        setisAutheticated(true);
-        sessionStorage.setItem('token', token);
-        error = false;
-        new ConnectionsService(token);
-        navigate('/', isAutheticated);
+      if (token === 'Error') {
+        toastService.emit('Email oder Passwort falsch!', 'error');
+      }
+      if (token !== 'Error') {
+        service.saveAccessToken(token);
+        service.saveAuthState(true);
+        navigate('/');
       }
     });
-    
     setSubmitting(false);
   };
 
   return (
     <>
-    { error && (<Error message='Password or Email wrong!' error={false}></Error>)}
       <h1>Departure - dein Dashboard für den öffentlichen Verkehr.</h1>
       <Formik
         initialValues={{ email: '', password: '' }}
@@ -52,18 +45,14 @@ export default function LoginPage() {
               <Form>
                 <div>
                   <div className='form-group'>
-                    <label>
-                      Email: <p className='p' />
-                      <Field type='email' name='email' className='Input' /> <p />
-                      <ErrorMessage name='email' component='div' />
-                    </label>
+                    <label className='label'>Email:</label>
+                    <Field type='email' name='email' className='Input' />
+                    <ErrorMessage name='email' component='div' />
                   </div>
                   <div className='form-group'>
-                    <label>
-                      Password: <p className='p' />
-                      <Field type='password' name='password' className='Input' />
-                      <ErrorMessage name='password' component='div' />
-                    </label>
+                    <label className='label'>Password:</label>
+                    <Field type='password' name='password' className='Input' />
+                    <ErrorMessage name='password' component='div' />
                   </div>
                   <button type='submit' className='btn btn-primary' disabled={isSubmitting}>
                     Submit

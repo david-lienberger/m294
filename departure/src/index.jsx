@@ -1,9 +1,10 @@
 import './index.scss';
+import "react-toastify/ReactToastify.min.css";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './i18n';
 import App from './pages/dashboard/dashboard.page';
-import Login from './pages/login/login.page';
+import LoginComponent from './pages/login/login.page';
 import { RouterProvider } from 'react-router';
 import { createBrowserRouter } from 'react-router-dom';
 import ConnectionDetailsComponent from './pages/connection-details/connection-details.component';
@@ -23,19 +24,19 @@ requestInterceptor.setUp();
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <AuthGuard auth={{isAuthenticated: true}}><App /></AuthGuard>
+    element: <AuthGuard><App /></AuthGuard>
   },
   {
-    path: "/login",
-    element: <Login />
+    path:"/login",
+    element: <LoginComponent/>
   },
   {
     path: "/connection",
-    element: <AuthGuard auth={{isAuthenticated: true}}><ConnectionDetailsComponent /></AuthGuard>
+    element: <AuthGuard><ConnectionDetailsComponent /></AuthGuard>
   },
   {
     path: "/search",
-    element: <AuthGuard auth={{isAuthenticated: true}}><SearchResultPage /></AuthGuard>
+    element: <AuthGuard><SearchResultPage /></AuthGuard>
   },
   {
     path: "*",

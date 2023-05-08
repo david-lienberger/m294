@@ -3,18 +3,18 @@
   height: 100%;
 }
 
-.search {
+.card {
   margin-top: 20%;
-  margin-left: auto;
-  margin-right: auto;
-  width: 70%;
-  height: 18em;
+  width: 100%;
+  height: fit-content;
   padding: 1em;
   box-shadow: rgba(0, 0, 0, 0.1) 0 10px 50px;
-  border-width: 1px;
-  border-radius: 0.5em;
-  border-color: rgb(195, 195, 195);
-  border-style: solid;
+  transition: ease-in-out 0.2s;
+}
+.card:hover {
+  transform: scale(103%);
+  box-shadow: rgba(0, 0, 0, 0.21) 0 10px 50px;
+  transition: ease-in-out 0.1s;
 }
 .form-group {
   margin-top: 1em;
@@ -32,23 +32,24 @@
   margin-top: 1em;
   margin-bottom: 1em;
 }
-#button1 {
-  width: 4em;
-  margin-right: 1em;
-  float: right;
-}
-#button1:hover {
-  background-color: rgb(158, 0, 0);
-  color: white;
-}
 h2 {
   margin-left: 0.5em;
 }
-
 .searchfields {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.button {
+  justify-content: end;
+  display: flex;
+  margin-top: 3em;
+  position: sticky;
+}
+#arrow-icon {
+  transform: scaleY(-1);
+  font-size: 2em;
 }

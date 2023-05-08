@@ -1,15 +1,17 @@
 import React from 'react';
-
-import NotFoundPage from '../../pages/not-found/not-found.page';
 import ToastService from '../../services/toast.service';
+import { Navigate } from 'react-router';
+import AuthService from '../../services/auth.service';
 
-export default function AuthGuard({auth, children}) {
+export default function AuthGuard({ children }) {
   const toastService = new ToastService();
+  const authService = new AuthService;
+  const authState = JSON.parse(authService.getAuthState());
 
-  if (!auth.isAuthenticated) {
-    toastService.emit("Sie sind nicht angemeldet.", 'error');
-    return (<NotFoundPage />);
-  }
+    if (authState) {
+      return children;
+    }
 
-  return children;
+  toastService.emit('Sie sind nicht angemeldet.', 'error');
+  return <Navigate to='/login' replace={true} />;
 }

@@ -9,8 +9,6 @@ F
 .eslintrc.json,7\1\71c20a341bfe32aa5cd5b4384e94f942bab6a7d3
 A
 public/index.html,f\4\f43ecdf8d666ee908aacce037b4cd72159e4741b
-<
-package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
 ]
 -src/components/journey/journey.component.scss,7\7\77bcbcb034a0d2c3c6c8b4dbc7d52a821438d8de
 U
@@ -25,8 +23,6 @@ e
 5src/components/connections/connections.component.scss,5\4\54d070af598610963f49a5bcdf475fead73dbd66
 \
 ,src/components/journey/journey.component.jsx,5\8\58a16fdfaaf6b773182009b578ae4748b0f11a62
-M
-src/guards/auth/auth.guard.js,f\b\fb38e03b302170daec5034795769fc5770b483e8
 W
 'src/pages/not-found/not-found.page.scss,e\c\ec400f8d312d920fb699224e1d3f03cfa6ef2320
 T
