@@ -12,6 +12,14 @@ import SearchResultPage from './pages/search-result/search-result.page';
 import { ToastContainer } from 'react-toastify';
 import NotFoundPage from './pages/not-found/not-found.page';
 import AuthGuard from './guards/auth/auth.guard';
+import RequestInterceptor from './interceptors/request.interceptor';
+import ResponseInterceptor from './interceptors/response.interceptor';
+
+const requestInterceptor = new RequestInterceptor();
+const responseInterceptor = new ResponseInterceptor();
+responseInterceptor.setUp();
+requestInterceptor.setUp();
+
 
 const router = createBrowserRouter([
   {

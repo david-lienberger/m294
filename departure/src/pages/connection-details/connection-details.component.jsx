@@ -6,7 +6,7 @@ import TransportService from '../../services/transport.service';
 import { JourneyComponent } from '../../components/journey/journey.component';
 import { Button, OverlayTrigger, Placeholder, Tooltip } from 'react-bootstrap';
 import { MapComponent } from '../../components/map/map.component';
-import { InformationComponent } from '../../components/icons/information.component';
+import { InformationComponent } from '../../components/information/information.component';
 import BackButtonComponent from '../../components/back-button/back-button.component';
 import ToastService from '../../services/toast.service';
 import ConnectionsService from '../../services/connections.service';
