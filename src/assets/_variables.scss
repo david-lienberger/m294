@@ -1,4 +1,13 @@
 $primary-color: #EB0000;
 $secondary-color: #767676;
+$sbb-green: #00973B;
+$sbb-orange: #E84E10;
 $shadow: rgba(0, 0, 0, 0.1) 0 10px 50px;
 $shadow-hover: rgba(0, 0, 0, 0.21) 0 10px 50px;
+
+:export {
+  primaryColor: $primary-color;
+  secondaryColor: $secondary-color;
+  sbbGreen: $sbb-green;
+  sbbOrange: $sbb-orange;
+}
