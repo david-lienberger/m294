@@ -38,7 +38,12 @@ Forms und Form-Controls werden mit Formik und Yup gemacht.
 
 ## Setupanleitung
 
-TODO: ADD DESCRIPTION HOW TO CONNECT AND START WITH BACKEND
+Dieses Backend starten.
+https://github.com/it-ninjas/fuek-departure-api
+> npm i
+
+> npm start
+
 
 ### Projekt starten
 > npm start
@@ -51,3 +56,8 @@ TODO: ADD DESCRIPTION HOW TO CONNECT AND START WITH BACKEND
 
 ### Projekt nach Prettier-Rules formatieren
 > npm run format
+
+
+### Lint Regeln
+
+Alle Dateien sind mit ESLint gestyled worden.
