@@ -33,7 +33,6 @@
   "INFORMATION": {
     "HEADING": "Nützliche Informationen zu Ihrem Reiseziel:",
     "NO_INFORMATION_TO_LOAD": "Leider können wir Ihnen hier keine weitere Informationen anzeigen.",
-    "DATE_IS_TOMMOROW": "Die angezeigten Verbindungen fahren erst Morgen.",
     "BICYCLES": {
       "HEADING": "Velos",
       "AMOUNT_PARKING": "Anzahl Veloparking:",
@@ -57,6 +56,8 @@
   "SEARCH": {
     "HEADING": "Verbindungssuche",
     "SUBMIT": "Suchen"
-  
+  },
+  "SEARCH_RESULT": {
+    "DATE_IS_TOMORROW": "Die angezeigten Verbindungen fahren erst Morgen."
   }
 }
