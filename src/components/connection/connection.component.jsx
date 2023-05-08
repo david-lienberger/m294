@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import './connection.component.scss';
 import { Button, Card, Placeholder } from 'react-bootstrap';
 import { useNavigate, useSearchParams } from 'react-router-dom';
