@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import ConnectionsService from '../../services/connections.service';
 import ConnectionComponent from '../connection/connection.component';
 import { Alert } from 'react-bootstrap';
+import { useNavigate } from 'react-router';
 
 export default function ConnectionsComponent() {
   const [connections, setConnections] = useState(undefined);
   const connectionsService = new ConnectionsService();
+  const navigate = useNavigate();
 
   useEffect(() => {
     connectionsService.getConnections().then((res) => {
@@ -13,6 +15,7 @@ export default function ConnectionsComponent() {
     })
       .catch((err) => {
       console.error(err);
+      navigate('/login');
     });
   }, []);
 

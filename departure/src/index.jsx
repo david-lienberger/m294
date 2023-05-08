@@ -18,7 +18,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/connection",
-    element: <ConnectionDetailsComponent />
+    element: <ConnectionDetailsComponent />,
   }
 
 ]);

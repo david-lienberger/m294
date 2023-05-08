@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import './login.page.scss';
@@ -13,6 +13,7 @@ const loginSchema = Yup.object().shape({
 });
 
 export default function LoginPage() {
+  const[isAutheticated, setisAutheticated] = useState();
   const navigate = useNavigate();
   let token;
   let error = false;
@@ -25,10 +26,11 @@ export default function LoginPage() {
         navigate('/login');
       } 
       if(token !== "Error") {
+        setisAutheticated(true);
         sessionStorage.setItem('token', token);
         error = false;
         new ConnectionsService(token);
-        navigate('/');
+        navigate('/', isAutheticated);
       }
     });
     

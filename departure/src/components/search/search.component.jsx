@@ -2,14 +2,19 @@ import React from 'react';
 import './search.component.scss';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import TransportService from '../../services/transport.service';
 
 export default function SearchComponent() {
+  const service = TransportService;
   const searchSchema = Yup.object().shape({
-    password: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
-    email: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
+    from: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
+    to: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
   });
   const handleSubmit = (values) => {
-    console.log(values);
+    const from = values.from;
+    const to = values.to;
+    console.log(service.getConnections(from, to));
+    console.log(from, to);
   };
 
   return (
@@ -46,22 +51,26 @@ export default function SearchComponent() {
                       <div>
                         <div className='form-group1'>
                           <label>
-                            <Field type='from' name='from' className='Input' />
+                            <Field id='from' type='from' name='from' className='Input' />
                             <ErrorMessage name='from' component='div' />
                           </label>
                         </div>
                         <div className='form-group1'>
                           <label>
-                            <Field type='to' name='to' className='Input' />
+                            <Field id='to' type='to' name='to' className='Input' />
                             <ErrorMessage name='to' component='div' />
                           </label>
                         </div>
+                        <button
+                          type='submit'
+                          className='btn btn-primary'
+                          disabled={isSubmitting}
+                        >
+                          Go
+                        </button>{' '}
                       </div>
                     </div>
                   </div>
-                  <button id='button1' type='submit' className='btn btn-primary' disabled={isSubmitting}>
-                    Go
-                  </button>{' '}
                 </div>
               </div>
             </Form>
