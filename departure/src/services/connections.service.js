@@ -21,7 +21,15 @@ export default class ConnectionsService {
     });
   }
 
-  addConnection() {
-
+  addConnection(from, to) {
+    const body = {
+      from: from,
+      to: to
+    }
+    return axios.post('http://localhost:4242/api/connections', body, {
+      headers: {
+        'x-access-token': this.accessToken
+      }
+    });
   }
 }

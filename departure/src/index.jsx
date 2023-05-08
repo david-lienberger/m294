@@ -5,20 +5,28 @@ import DashboardPage from './pages/dashboard/dashboard.page';
 import App from './pages/login/login.page';
 import { RouterProvider } from 'react-router';
 import { createBrowserRouter } from 'react-router-dom';
-import ConnectionDetailsComponent from './components/connection-details/connection-details.component';
+import ConnectionDetailsComponent from './pages/connection-details/connection-details.component';
+import SearchResultPage from './pages/search-result/search-result.page';
+import { ToastContainer } from 'react-toastify';
+import NotFoundPage from './pages/not-found/not-found.page';
+import AuthGuard from './guards/auth/auth.guard';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <DashboardPage/>
-  },
-  {
-    path: "/login",
-    element: <App />
+    element: <AuthGuard auth={{isAuthenticated: true}}><App /></AuthGuard>
   },
   {
     path: "/connection",
-    element: <ConnectionDetailsComponent />,
+    element: <AuthGuard auth={{isAuthenticated: true}}><ConnectionDetailsComponent /></AuthGuard>
+  },
+  {
+    path: "/search",
+    element: <AuthGuard auth={{isAuthenticated: true}}><SearchResultPage /></AuthGuard>
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />
   }
 
 ]);
@@ -26,6 +34,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
+    <ToastContainer />
     <RouterProvider router={router} />
   </>,
 );

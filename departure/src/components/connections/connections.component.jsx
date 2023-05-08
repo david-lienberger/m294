@@ -2,32 +2,37 @@ import React, { useEffect, useState } from 'react';
 import ConnectionsService from '../../services/connections.service';
 import ConnectionComponent from '../connection/connection.component';
 import { Alert } from 'react-bootstrap';
-import { useNavigate } from 'react-router';
+import ToastService from '../../services/toast.service';
+import './connections.component.scss';
 
-export default function ConnectionsComponent() {
-  const [connections, setConnections] = useState(undefined);
+export default function ConnectionsComponent({ connectionsList }) {
   const connectionsService = new ConnectionsService();
-  const navigate = useNavigate();
+  const toastService = new ToastService();
+  const [connections, setConnections] = useState(undefined);
 
   useEffect(() => {
-    connectionsService.getConnections().then((res) => {
-      setConnections(res.data);
-    })
-      .catch((err) => {
-      console.error(err);
-      navigate('/login');
-    });
-  }, []);
+    setConnections(connectionsList);
+  }, [connectionsList]);
 
   function deleteConnection(id) {
     connectionsService.deleteConnection(id).then((res) => {
       console.info(res);
+      toastService.emit('Verbindung gelöscht.', 'success');
     }).catch((err) => {
       console.error(err);
     });
     setConnections(
-      connections.filter((connection) => connection.id !== id)
+      connections.filter((connection) => connection.id !== id),
     );
+  }
+
+  function saveConnection(from, to) {
+    connectionsService.addConnection(from, to).then((res) => {
+      console.info(res);
+      toastService.emit('Verbindung gespeichert.', 'success');
+    }).catch((err) => {
+      console.error(err);
+    });
   }
 
   if (connections && connections.length > 0) {
@@ -35,10 +40,11 @@ export default function ConnectionsComponent() {
       <>
         <div id='connection-list'>
           {
-            connections.map((connection) => {
+            connections.map((connection, key) => {
               return (
-                <div key={connection.id}>
-                  <ConnectionComponent connection={connection} deleteConnection={deleteConnection}></ConnectionComponent>
+                <div key={key}>
+                  <ConnectionComponent connection={connection} deleteConnection={deleteConnection}
+                                       saveConnection={saveConnection}></ConnectionComponent>
                 </div>
               );
             })
@@ -50,7 +56,7 @@ export default function ConnectionsComponent() {
 
   return (
     <>
-    <Alert key={1} variant={'primary'}>Es können keine Verbindungen geladen werden.</Alert>
+      <Alert key={1} variant={'primary'}>Es können keine Verbindungen geladen werden.</Alert>
     </>
   );
 

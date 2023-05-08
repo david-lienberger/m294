@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import './connection.component.scss';
 import { Button, Card, Placeholder } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import TransportService from '../../services/transport.service';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import moment from 'moment';
+import TransportService from '../../services/transport.service';
 
-export default function ConnectionComponent({ connection, deleteConnection }) {
+export default function ConnectionComponent({ connection, deleteConnection, saveConnection }) {
   const navigate = useNavigate();
   const transportService = new TransportService();
   const [detailedConnection, setDetailedConnection] = useState(undefined);
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    transportService.getConnection(connection.from, connection.to)
+    if ('products' in connection) {
+      setDetailedConnection(connection);
+    } else {
+      transportService.getConnection(connection.from.location.name, connection.to.location.name)
       .then((res) => {
         setDetailedConnection(res.data.connections[0]);
       })
@@ -19,12 +23,24 @@ export default function ConnectionComponent({ connection, deleteConnection }) {
         console.error(err);
         navigate('/login');
       });
-  }, []);
+    }
+  }, [connection]);
+
+  function performActionButton() {
+    // If not on search-result-page
+    if (!searchParams.size > 0) {
+      deleteConnection(connection.id);
+    } else {
+      const from = connection.from.location.name;
+      const to = connection.to.location.name;
+      saveConnection(from, to);
+    }
+  }
 
   function navigateToDetail(event) {
     // To prevent that the app navigates if the delete-button gets clicked
     if (event.target.tagName.toString() === 'DIV') {
-      navigate(`/connection?from=${detailedConnection.from.location.name}&to=${detailedConnection.to.location.name}`);
+      navigate(`/connection?from=${detailedConnection.from.location.name}&to=${detailedConnection.to.location.name}&departureTime=${detailedConnection.from.departure}`);
     }
   }
 
@@ -44,11 +60,14 @@ export default function ConnectionComponent({ connection, deleteConnection }) {
               </span>
                 {detailedConnection.to.location.name}
               </div>
-              <Button variant='outline-primary' id='delete-button' onClick={() => {
-                deleteConnection(connection.id);
+              <Button variant='secondary' id='action-button' onClick={() => {
+                performActionButton();
               }}>
-                <span className='material-symbols-outlined'>delete</span>
-              </Button>{' '}
+                {
+                  searchParams.size > 0 ? <span className='material-symbols-outlined'>add</span> : <span className='material-symbols-outlined'>delete</span>
+                }
+
+              </Button>
             </div>
             <div id='card-content'>
               <div id='destinations'>
@@ -86,7 +105,7 @@ export default function ConnectionComponent({ connection, deleteConnection }) {
     <Card id='connection-card'>
       <Card.Body>
         <Placeholder as={Card.Title} animation='wave'>
-          <Placeholder xs={1} /> <Placeholder xs={5} /> <Placeholder style={{float: 'right'}} xs={1} />
+          <Placeholder xs={1} /> <Placeholder xs={5} /> <Placeholder style={{ float: 'right' }} xs={1} />
         </Placeholder>
         <Placeholder as={Card.Body} animation='wave'>
           <Placeholder xs={3} /> <Placeholder xs={3} />

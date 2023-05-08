@@ -1,10 +1,15 @@
+@use 'assets/variables' as v;
+
 body,
 html {
-    font-family: "stolzl", sans-serif;
-    font-style: normal;
-    font-weight: 300;
+  font-family: "stolzl", sans-serif;
+  font-style: normal;
+  font-weight: 300;
 }
 
-$theme-colors: ();
+$theme-colors: (
+        "primary": v.$primary-color,
+        "secondary": v.$secondary-color
+);
 
 @import "~bootstrap/scss/bootstrap";

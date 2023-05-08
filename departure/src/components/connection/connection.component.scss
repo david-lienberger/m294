@@ -1,3 +1,5 @@
+@use 'src/assets/variables' as v;
+
 #connection-card {
   margin: 1em;
   font-size: 1.4em;
@@ -31,8 +33,8 @@
   font-size: 0.7em;
   font-weight: 700;
   font-style: italic;
-  color: #ffffff;
-  background-color: #EB0000;
+  color: #fff;
+  background-color: v.$primary-color;
   margin-right: 1rem;
   border-radius: 0.5em;
   display: flex;
@@ -62,7 +64,7 @@
 
 #delay {
   margin-left: 0.5rem;
-  color: #EB0000;
+  color: v.$primary-color;
   font-weight: 700;
 }
 
@@ -87,14 +89,9 @@
   height: 0.5em;
 }
 
-#delete-button {
+#action-button {
   color: #fff;
-  background-color: #EB0000;
   margin-left: auto;
   margin-right: 0.5rem;
   transform: scale(85%);
-}
-
-#delete-button:hover {
-  background-color: #A20013;
 }
