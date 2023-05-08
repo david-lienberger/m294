@@ -3,7 +3,7 @@ import "react-toastify/ReactToastify.min.css";
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
+import './i18n';
 import App from './pages/dashboard/dashboard.page';
 import { RouterProvider } from 'react-router';
 import { createBrowserRouter } from 'react-router-dom';

@@ -1,0 +1,20 @@
+{
+  "UTILS": {
+    "CONNECTION_REMOVED": "Verbindung entfernt.",
+    "CONNECTION_SAVED": "Verbindung gespeichert.",
+    "WAIT_WITH_ACTION": "Bitte warten Sie mit dieser Aktion.",
+    "REMOVE_CONNECTION": "Diese Verbindung entfernen.",
+    "SAVE_CONNECTION": "Diese Verbindung speichern.",
+    "NAVIGATE_BACK": "Zurück"
+  },
+  "DASHBOARD": {
+    "YOUR_SAVED_CONNECTION": "Ihre gespeicherten Verbindungen:"
+  },
+  "NOT_FOUND": {
+    "HEADING": "404 Error.",
+    "DESCRIPTION": "Die angefragte Seite wurde nicht gefunden."
+  },
+  "": {
+
+  }
+}

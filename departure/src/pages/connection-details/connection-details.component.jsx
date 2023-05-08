@@ -10,6 +10,7 @@ import { InformationComponent } from '../../components/information/information.c
 import BackButtonComponent from '../../components/back-button/back-button.component';
 import ToastService from '../../services/toast.service';
 import ConnectionsService from '../../services/connections.service';
+import { useTranslation } from 'react-i18next';
 
 export const PassListContext = createContext(undefined);
 
@@ -22,6 +23,7 @@ export default function ConnectionDetailsComponent() {
   const [connectionSaved, setConnectionSaved] = useState(false);
   const [lastAction, setLastAction] = useState(new Date());
   const TIME_TO_WAIT = -5000;
+  const {t} = useTranslation();
 
   useEffect(() => {
     const from = searchParams.get('from');
@@ -40,17 +42,17 @@ export default function ConnectionDetailsComponent() {
     if (lastAction - new Date() < TIME_TO_WAIT) {
       setConnectionSaved(!connectionSaved);
       if (connectionSaved) {
-        toastService.emit("Verbindung entfernt.", 'success');
+        toastService.emit(t('UTILS.CONNECTION_REMOVED'), 'success');
         // If the provided departure-fuek-API would return the ID of the created object, you could handle this.
       } else {
         connectionsService.addConnection(detailedConnection.from.location.name, detailedConnection.to.location.name).then((res) => {
           console.info(res);
-          toastService.emit("Verbindung gespeichert.", 'success');
+          toastService.emit(t('UTILS.CONNECTION_SAVED'), 'success');
         })
       }
       setLastAction(new Date());
     } else {
-      toastService.emit("Bitte warten Sie mit dieser Aktion.", 'warning');
+      toastService.emit(t('UTILS.WAIT_WITH_ACTION'), 'warning');
     }
   }
 
@@ -66,7 +68,7 @@ export default function ConnectionDetailsComponent() {
           </span>
             <div className='destination'>{detailedConnection.to.location.name}</div>
             <div id='save-button-wrapper'>
-              <OverlayTrigger overlay={<Tooltip>{connectionSaved ? 'Diese Verbindung entfernen.' : 'Diese Verbindung speichern.'}</Tooltip>} trigger={['focus', 'hover']} placement={'right'}>
+              <OverlayTrigger overlay={<Tooltip>{connectionSaved ? t('UTILS.REMOVE_CONNECTION') : t('UTILS.SAVE_CONNECTION')}</Tooltip>} trigger={['focus', 'hover']} placement={'right'}>
               <Button variant={'primary'} onClick={() => save()}>
                 {
                   connectionSaved ?

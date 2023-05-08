@@ -25,19 +25,11 @@ e
 5src/components/connections/connections.component.scss,5\4\54d070af598610963f49a5bcdf475fead73dbd66
 \
 ,src/components/journey/journey.component.jsx,5\8\58a16fdfaaf6b773182009b578ae4748b0f11a62
-Q
-!src/services/transport.service.js,a\0\a0bec819e48cd1d71ca8a587b5f38a4f6f6050eb
 M
 src/guards/auth/auth.guard.js,f\b\fb38e03b302170daec5034795769fc5770b483e8
-V
-&src/pages/not-found/not-found.page.jsx,e\d\ed410f0d60605aa819899b3f7fe33690e62aa0ee
-d
-4src/components/back-button/back-button.component.jsx,3\d\3d27592f3b5cdd22b20c01ac9ebf8bea0db9bd55
 W
 'src/pages/not-found/not-found.page.scss,e\c\ec400f8d312d920fb699224e1d3f03cfa6ef2320
 T
 $src/components/map/map.component.jsx,d\4\d43d5658fc7cbbc4550b5d5a61a0773ec4c41fbf
 n
 >src/pages/connection-details/connection-details.component.scss,7\9\797fea2b8a6902195cfb10a1d27d26b48c78c56b
-m
-=src/pages/connection-details/connection-details.component.jsx,d\5\d5e0570be40918481c9e06a038c6932447eae363
