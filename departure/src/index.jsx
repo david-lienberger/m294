@@ -10,12 +10,13 @@ import SearchResultPage from './pages/search-result/search-result.page';
 import { ToastContainer } from 'react-toastify';
 import NotFoundPage from './pages/not-found/not-found.page';
 import AuthGuard from './guards/auth/auth.guard';
-import App from './pages/dashboard/dashboard.page';
+import App from './pages/dashboard/dashboard.page'
+
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <AuthGuard auth={{isAuthenticated: JSON.parse(sessionStorage.getItem("isAuthenticated"))}}><App /></AuthGuard>
+    element: <AuthGuard><App /></AuthGuard>
   },
   {
     path:"/login",
@@ -23,11 +24,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/connection",
-    element: <AuthGuard auth={{isAuthenticated: JSON.parse(sessionStorage.getItem("isAuthenticated"))}}><ConnectionDetailsComponent /></AuthGuard>
+    element: <AuthGuard><ConnectionDetailsComponent /></AuthGuard>
   },
   {
     path: "/search",
-    element: <AuthGuard auth={{isAuthenticated: JSON.parse(sessionStorage.getItem("isAuthenticated"))}}><SearchResultPage /></AuthGuard>
+    element: <AuthGuard><SearchResultPage /></AuthGuard>
   },
   {
     path: "*",

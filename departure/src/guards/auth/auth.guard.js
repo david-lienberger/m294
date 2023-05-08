@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ToastService from '../../services/toast.service';
-import LoginPage from '../../pages/login/login.page';
+import { Navigate } from 'react-router';
+import AuthService from '../../services/auth.service';
 
-export default function AuthGuard({auth, children}) {
-
-  useEffect(() => {
-  }, [auth])
+export default function AuthGuard({ children }) {
   const toastService = new ToastService();
+  const authService = new AuthService;
+  const authState = JSON.parse(authService.getAuthState());
 
-  if (!auth.isAuthenticated) {
-    toastService.emit("Sie sind nicht angemeldet.", 'error');
-    return (<LoginPage />);
-  }
+    if (authState) {
+      return children;
+    }
 
-  return children;
+  toastService.emit('Sie sind nicht angemeldet.', 'error');
+  return <Navigate to='/login' replace={true} />;
 }

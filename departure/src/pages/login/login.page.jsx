@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import './login.page.scss';
 import AuthService from '../../services/auth.service';
 import ToastService from '../../services/toast.service';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 const loginSchema = Yup.object().shape({
   password: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
@@ -12,8 +12,8 @@ const loginSchema = Yup.object().shape({
 });
 
 export default function LoginPage() {
-  const navigate = useNavigate();
   const toastService = new ToastService();
+  const navigate = useNavigate();
   let token;
   const handleSubmit = (values, { setSubmitting }) => {
     const service = new AuthService();
@@ -23,9 +23,9 @@ export default function LoginPage() {
         toastService.emit('Email oder Passwort falsch!', 'error');
       }
       if (token !== 'Error') {
-        sessionStorage.setItem('token', token);
-        sessionStorage.setItem('isAuthenticated', true);
-        navigate("/");
+        service.saveAccessToken(token);
+        service.saveAuthState(true);
+        navigate('/');
       }
     });
     setSubmitting(false);
@@ -45,16 +45,12 @@ export default function LoginPage() {
               <Form>
                 <div>
                   <div className='form-group'>
-                    <label className='label'>
-                      Email:
-                    </label>
+                    <label className='label'>Email:</label>
                     <Field type='email' name='email' className='Input' />
                     <ErrorMessage name='email' component='div' />
                   </div>
                   <div className='form-group'>
-                    <label className='label'>
-                      Password:
-                    </label>
+                    <label className='label'>Password:</label>
                     <Field type='password' name='password' className='Input' />
                     <ErrorMessage name='password' component='div' />
                   </div>
