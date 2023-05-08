@@ -5,7 +5,16 @@
     "WAIT_WITH_ACTION": "Bitte warten Sie mit dieser Aktion.",
     "REMOVE_CONNECTION": "Diese Verbindung entfernen.",
     "SAVE_CONNECTION": "Diese Verbindung speichern.",
-    "NAVIGATE_BACK": "Zurück"
+    "NAVIGATE_BACK": "Zurück",
+    "NOT_SIGNED_IN": "Sie sind nicht angemeldet.",
+    "CLIENT_SIDE_ERROR": "Es ist ein Client-Fehler aufgetreten.",
+    "SERVER_SIDE_ERROR": "Es ist ein Server-Fehler aufgetreten.",
+    "NO_CONNECTIONS_TO_LOAD": "Es können keine Verbindungen geladen werden.",
+    "VALIDATOR_ERROR": {
+      "TO_SHORT": "Zu wenig Zeichen.",
+      "TO_LONG": "Zu viel Zeichen.",
+      "REQUIRED": "Pflichtfeld!"
+    }
   },
   "DASHBOARD": {
     "YOUR_SAVED_CONNECTION": "Ihre gespeicherten Verbindungen:"
@@ -14,7 +23,38 @@
     "HEADING": "404 Error.",
     "DESCRIPTION": "Die angefragte Seite wurde nicht gefunden."
   },
-  "": {
-
+  "LOGIN": {
+    "INVALID_CREDENTIALS": "E-Mail oder Passwort ist falsch!",
+    "HEADING": "Departure - Ihr Dashboard des öffentlichen Verkehrs.",
+    "EMAIL": "E-Mail",
+    "PASSWORD": "Passwort",
+    "SUBMIT": "Anmelden"
+  },
+  "INFORMATION": {
+    "HEADING": "Nützliche Informationen zu Ihrem Reiseziel:",
+    "NO_INFORMATION_TO_LOAD": "Leider können wir Ihnen hier keine weitere Informationen anzeigen.",
+    "BICYCLES": {
+      "HEADING": "Velos",
+      "AMOUNT_PARKING": "Anzahl Veloparking:",
+      "CAPACITY_PARKING": "Kapazität Velostation:",
+      "AMOUNT_RENT": "Anzahl Mietvelos:",
+      "COMMENT_RENT": "Bemerkung Mietvelos:"
+    },
+    "PARK_AND_RAIL": {
+      "HEADING": "Park and Rail",
+      "CAPACITY": "Parkplätze:",
+      "OPENING_HOURS": "Öffnungszeiten:",
+      "PRICE_PER_DAY": "Preis pro Tag:",
+      "COMMENT": "Bemerkung"
+    },
+    "TAXI": {
+      "HEADING": "Taxi",
+      "INFO": "Info:",
+      "PHONE": "Telefon:"
+    }
+  },
+  "SEARCH": {
+    "HEADING": "Verbindungssuche",
+    "SUBMIT": "Suchen"
   }
 }

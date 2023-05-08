@@ -11,12 +11,12 @@ export default class AuthService {
           email: params[0],
           password: params[1],
         },
-      }).then(function (response) {
+      }).then((response) => {
         token = JSON.stringify(response.data.token);
       });
       return token;
     } catch (error) {
-      return "Error";
+      return 'Error';
     }
   }
 

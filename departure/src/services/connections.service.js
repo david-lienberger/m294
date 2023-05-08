@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export default class ConnectionsService {
-
   getConnections() {
     return axios.get('http://localhost:4242/api/connections');
   }
@@ -12,9 +11,9 @@ export default class ConnectionsService {
 
   addConnection(from, to) {
     const body = {
-      from: from,
-      to: to
-    }
+      from,
+      to,
+    };
     return axios.post('http://localhost:4242/api/connections', body);
   }
 }

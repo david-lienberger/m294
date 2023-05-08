@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Alert } from 'react-bootstrap';
 import ConnectionsService from '../../services/connections.service';
 import ConnectionComponent from '../connection/connection.component';
-import { Alert } from 'react-bootstrap';
 import ToastService from '../../services/toast.service';
 import './connections.component.scss';
 
@@ -9,6 +10,7 @@ export default function ConnectionsComponent({ connectionsList }) {
   const connectionsService = new ConnectionsService();
   const toastService = new ToastService();
   const [connections, setConnections] = useState(undefined);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setConnections(connectionsList);
@@ -16,10 +18,10 @@ export default function ConnectionsComponent({ connectionsList }) {
 
   function deleteConnection(id) {
     connectionsService.deleteConnection(id).then((res) => {
-      console.info(res);
-      toastService.emit('Verbindung gelöscht.', 'success');
+      toastService.emit(t('UTILS.CONNECTION_REMOVED'), 'success');
+      return res;
     }).catch((err) => {
-      console.error(err);
+      throw err;
     });
     setConnections(
       connections.filter((connection) => connection.id !== id),
@@ -28,36 +30,32 @@ export default function ConnectionsComponent({ connectionsList }) {
 
   function saveConnection(from, to) {
     connectionsService.addConnection(from, to).then((res) => {
-      console.info(res);
-      toastService.emit('Verbindung gespeichert.', 'success');
+      toastService.emit(t('UTILS.CONNECTION_SAVED'), 'success');
+      return res;
     }).catch((err) => {
-      console.error(err);
+      throw err;
     });
   }
 
   if (connections && connections.length > 0) {
     return (
-      <>
-        <div id='connection-list'>
-          {
-            connections.map((connection, key) => {
-              return (
-                <div key={key}>
-                  <ConnectionComponent connection={connection} deleteConnection={deleteConnection}
-                                       saveConnection={saveConnection}></ConnectionComponent>
-                </div>
-              );
-            })
+      <div id="connection-list">
+        {
+            connections.map((connection, key) => (
+              <div key={key}>
+                <ConnectionComponent
+                  connection={connection}
+                  deleteConnection={deleteConnection}
+                  saveConnection={saveConnection}
+                />
+              </div>
+            ))
           }
-        </div>
-      </>
+      </div>
     );
   }
 
   return (
-    <>
-      <Alert key={1} variant={'primary'}>Es können keine Verbindungen geladen werden.</Alert>
-    </>
+    <Alert key={1} variant="primary">{t('UTILS.NO_CONNECTIONS_TO_LOAD')}</Alert>
   );
-
 }

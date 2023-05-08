@@ -1,11 +1,10 @@
 import { toast } from 'react-toastify';
 
 export default class ToastService {
-
   emit(message, type) {
     toast(message, {
-      type: type,
-      position: "top-right",
+      type,
+      position: 'top-right',
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -13,7 +12,7 @@ export default class ToastService {
       draggable: false,
       pauseOnFocusLoss: false,
       progress: undefined,
-      theme: "light",
+      theme: 'light',
     });
   }
 }

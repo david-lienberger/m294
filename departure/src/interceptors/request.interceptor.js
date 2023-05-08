@@ -1,17 +1,18 @@
 import axios from 'axios';
+import AuthService from '../services/auth.service';
 
 export default class RequestInterceptor {
+  authService = new AuthService();
 
   setUp() {
+    const accessToken = JSON.parse(this.authService.getAccessToken());
     axios.interceptors.request.use((request) => {
       if (request.url.includes('localhost')) {
         request.headers = {
-          'x-access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiYWxpY2VAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODM1MzEzOTUsImV4cCI6MTY4MzUzODU5NX0.0Iavj1DE7Uot00hkpWdZhXTKWzF9wejoHdtOKXllgdU'
-        }
+          'x-access-token': accessToken,
+        };
       }
       return request;
-    })
+    });
   }
-
 }
-
