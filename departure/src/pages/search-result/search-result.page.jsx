@@ -5,10 +5,12 @@ import ConnectionsComponent from '../../components/connections/connections.compo
 import './search-result.page.scss';
 import moment from 'moment';
 import BackButtonComponent from '../../components/back-button/back-button.component';
+import { Spinner } from 'react-bootstrap';
 
 export default function SearchResultPage() {
   const [searchParams] = useSearchParams();
   const [connections, setConnections] = useState(undefined);
+  const [loading, setLoading] = useState(true);
   const transportService = new TransportService();
   const from = searchParams.get('from');
   const to = searchParams.get('to');
@@ -17,8 +19,19 @@ export default function SearchResultPage() {
   useEffect(() => {
     transportService.getConnection(from, to).then((res) => {
       setConnections(res.data['connections']);
+      setLoading(false);
     });
   }, []);
+
+  if (loading) {
+    return (
+      <>
+        <div id='spinner-wrapper'>
+          <Spinner animation='border' role='status' />
+        </div>
+      </>
+    );
+  }
 
   return (
     <>

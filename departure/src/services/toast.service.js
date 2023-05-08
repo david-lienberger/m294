@@ -9,8 +9,9 @@ export default class ToastService {
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       draggable: false,
+      pauseOnFocusLoss: false,
       progress: undefined,
       theme: "light",
     });

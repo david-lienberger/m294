@@ -27,8 +27,6 @@ e
 ,src/components/journey/journey.component.jsx,5\8\58a16fdfaaf6b773182009b578ae4748b0f11a62
 Q
 !src/services/transport.service.js,a\0\a0bec819e48cd1d71ca8a587b5f38a4f6f6050eb
-W
-'src/pages/dashboard/dashboard.page.scss,2\3\23967ba2cc85d39703e45fa603e5f89e23eb1fa8
 M
 src/guards/auth/auth.guard.js,f\b\fb38e03b302170daec5034795769fc5770b483e8
 V
@@ -37,15 +35,9 @@ d
 4src/components/back-button/back-button.component.jsx,3\d\3d27592f3b5cdd22b20c01ac9ebf8bea0db9bd55
 W
 'src/pages/not-found/not-found.page.scss,e\c\ec400f8d312d920fb699224e1d3f03cfa6ef2320
-_
-/src/pages/search-result/search-result.page.scss,6\d\6d5263a1570611b650615613d8c480c3aedd6083
-^
-.src/pages/search-result/search-result.page.jsx,5\c\5c1ad226d6d804241661ae47999dc2b3e14cf180
 T
 $src/components/map/map.component.jsx,d\4\d43d5658fc7cbbc4550b5d5a61a0773ec4c41fbf
 n
 >src/pages/connection-details/connection-details.component.scss,7\9\797fea2b8a6902195cfb10a1d27d26b48c78c56b
-M
-src/services/toast.service.js,b\4\b4212be7a0f29b4005382f1ad66f0799473a9d3e
 m
 =src/pages/connection-details/connection-details.component.jsx,d\5\d5e0570be40918481c9e06a038c6932447eae363

@@ -3,6 +3,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import './information.component.scss';
 import { PassListContext } from '../../pages/connection-details/connection-details.component';
 import TransportService from '../../services/transport.service';
+import { Spinner } from 'react-bootstrap';
 
 export function InformationComponent() {
   const transportService = new TransportService();
@@ -10,13 +11,16 @@ export function InformationComponent() {
   const xCoordinate = passList[passList.length - 1].station.coordinate.x;
   const yCoordinate = passList[passList.length - 1].station.coordinate.y;
   const [stationInformation, setStationInformation] = useState(undefined);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     transportService.getStationInformation(xCoordinate, yCoordinate).then((res) => {
       setStationInformation(res.data.records[0].fields);
+      setLoading(false);
     })
       .catch((err) => {
         console.error(err);
+        setLoading(false);
       });
   }, []);
 
@@ -77,6 +81,16 @@ export function InformationComponent() {
         </>
       );
     }
+  }
+
+  if (loading) {
+    return (
+      <>
+        <div className='information' id='spinner'>
+          <Spinner animation='border' role='status' id='search-res-spinner' />
+        </div>
+      </>
+    );
   }
 
   if (stationInformation) {
