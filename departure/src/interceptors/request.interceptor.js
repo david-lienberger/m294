@@ -5,8 +5,8 @@ export default class RequestInterceptor {
   authService = new AuthService();
 
   setUp() {
-    const accessToken = JSON.parse(this.authService.getAccessToken());
     axios.interceptors.request.use((request) => {
+      const accessToken = JSON.parse(this.authService.getAccessToken());
       if (request.url.includes('localhost')) {
         request.headers = {
           'x-access-token': accessToken,
