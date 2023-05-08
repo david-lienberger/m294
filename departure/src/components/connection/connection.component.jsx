@@ -21,7 +21,6 @@ export default function ConnectionComponent({ connection, deleteConnection, save
       })
       .catch((err) => {
         console.error(err);
-        navigate('/login');
       });
     }
   }, [connection]);

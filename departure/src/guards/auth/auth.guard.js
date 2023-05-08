@@ -1,14 +1,16 @@
-import React from 'react';
-
-import NotFoundPage from '../../pages/not-found/not-found.page';
+import React, { useEffect } from 'react';
 import ToastService from '../../services/toast.service';
+import LoginPage from '../../pages/login/login.page';
 
 export default function AuthGuard({auth, children}) {
+
+  useEffect(() => {
+  }, [auth])
   const toastService = new ToastService();
 
   if (!auth.isAuthenticated) {
     toastService.emit("Sie sind nicht angemeldet.", 'error');
-    return (<NotFoundPage />);
+    return (<LoginPage />);
   }
 
   return children;
