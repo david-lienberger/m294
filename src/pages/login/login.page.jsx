@@ -49,16 +49,16 @@ export default function LoginPage() {
               <Form>
                 <div>
                   <div className="form-group">
-                    <label className="login-label">{t('LOGIN.EMAIL')}</label>
-                    <Field type="email" name="email" />
+                    <label id="email-label" className="login-label">{t('LOGIN.EMAIL')}</label>
+                    <Field aria-labelledby="email-label" type="email" name="email" />
                     <ErrorMessage name="email" component="div" />
                   </div>
                   <div className="form-group">
-                    <label className="login-label">{t('LOGIN.PASSWORD')}</label>
-                    <Field type="password" name="password" />
+                    <label id="password-label" className="login-label">{t('LOGIN.PASSWORD')}</label>
+                    <Field aria-labelledby="password-label" type="password" name="password" />
                     <ErrorMessage name="password" component="div" />
                   </div>
-                  <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+                  <button type="submit" id="submit" className="btn btn-primary" disabled={isSubmitting}>
                     {t('LOGIN.SUBMIT')}
                   </button>
                 </div>

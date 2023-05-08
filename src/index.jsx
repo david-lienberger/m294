@@ -1,6 +1,6 @@
 import './index.scss';
-import 'react-toastify/ReactToastify.min.css';
 import React from 'react';
+import 'react-toastify/dist/ReactToastify.css';
 import ReactDOM from 'react-dom/client';
 import './i18n';
 import { RouterProvider } from 'react-router';
@@ -20,7 +20,7 @@ const responseInterceptor = new ResponseInterceptor();
 responseInterceptor.setUp();
 requestInterceptor.setUp();
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: '/',
     element: <AuthGuard><App /></AuthGuard>,
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
 
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root') || document.createElement('div'));
 root.render(
   <>
     <ToastContainer />
