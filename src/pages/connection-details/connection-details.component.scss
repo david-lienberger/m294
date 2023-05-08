@@ -1,0 +1,48 @@
+@use '../../assets/variables' as v;
+
+#connection {
+  font-size: 2.5em;
+  display: flex;
+  align-items: center;
+}
+
+.destination {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+#connection-details-wrapper {
+  margin-top: 3rem;
+  margin-left: 5rem;
+}
+
+#details-content {
+  display: flex;
+}
+
+#journey-wrapper {
+  width: 30%;
+  position: sticky;
+  top: 5rem;
+}
+
+#map-information-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+#back-button-connection-details > button {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  background-color: v.$secondary-color;
+  border: none;
+}
+
+#add-icon {
+
+}
+
+#done-icon {
+  transition: 0.5s;
+}

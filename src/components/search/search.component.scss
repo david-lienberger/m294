@@ -1,0 +1,53 @@
+@use 'src/assets/variables' as v;
+
+#search-form {
+  width: 80%;
+}
+
+#card {
+  width: 100%;
+  padding: 1em;
+  box-shadow: v.$shadow;
+  transition: ease-in-out 0.2s;
+}
+
+#card:hover {
+  transform: scale(103%);
+  box-shadow: v.$shadow-hover;
+  transition: ease-in-out 0.1s;
+}
+
+.search-input {
+  margin-top: 1em;
+}
+
+#search-flex-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#icon {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3em;
+}
+
+#search-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#search-submit-button {
+  justify-content: end;
+  display: flex;
+  margin-top: 3em;
+  position: sticky;
+}
+
+#arrow-icon {
+  transform: scaleY(-1);
+  font-size: 2em;
+}

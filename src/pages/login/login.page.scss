@@ -1,0 +1,26 @@
+@use 'src/assets/variables' as v;
+
+.login-form {
+    width: 20%;
+    margin: 10% auto auto;
+    box-shadow: v.$shadow;
+    padding: 1em;
+    justify-content: center;
+    display: flex;
+}
+
+.form-group {
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+#login-heading {
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+.login-label {
+    font-weight: 600;
+    font-size: 1.2em;
+}

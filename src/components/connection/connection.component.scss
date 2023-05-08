@@ -1,0 +1,97 @@
+@use 'src/assets/variables' as v;
+
+#connection-card {
+  margin: 1em;
+  font-size: 1.4em;
+  box-shadow: v.$shadow;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+  min-height: 7rem;
+}
+
+#connection-card:hover {
+  transform: scale(103%);
+  box-shadow: v.$shadow-hover;
+  transition: ease-in-out 0.1s;
+}
+
+#card-header {
+  display: flex;
+  align-items: center;
+}
+
+#card-content {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#product-tag {
+  height: fit-content;
+  width: fit-content;
+  padding: 0.1em 0.4em 0.1em 0.4em;
+  font-size: 0.7em;
+  font-weight: 700;
+  font-style: italic;
+  color: #fff;
+  background-color: v.$primary-color;
+  margin-right: 1rem;
+  border-radius: 0.5em;
+  display: flex;
+  align-items: center;
+}
+
+#journey {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+#destinations {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+#from {
+
+}
+
+#to {
+  margin-left: auto;
+}
+
+#delay {
+  margin-left: 0.5rem;
+  color: v.$primary-color;
+  font-weight: 700;
+}
+
+#line {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+#connection-line {
+  width: 100%;
+  background-color: black;
+  height: 0.2em;
+}
+
+.dot {
+  margin-left: -10px;
+  margin-right: -10px;
+  background-color: black;
+  border-radius: 100%;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+#action-button {
+  color: #fff;
+  margin-left: auto;
+  margin-right: 0.5rem;
+  transform: scale(85%);
+}

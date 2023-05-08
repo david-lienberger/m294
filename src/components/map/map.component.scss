@@ -1,0 +1,17 @@
+@use '../../assets/variables' as v;
+
+#map {
+  margin-top: 2rem;
+  height: 20rem;
+  width: 100%;
+  box-shadow: v.$shadow;
+  border-radius: 0.5em;
+  transition: 0.2s;
+}
+
+#map:hover {
+  transform: scale(103%);
+  box-shadow: v.$shadow-hover;
+  transition: ease-in-out 0.1s;
+}
+

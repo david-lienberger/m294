@@ -1,0 +1,60 @@
+#pass-list {
+  margin-top: 2rem;
+  font-size: 1.3em;
+  display: flex;
+  flex-direction: column;
+}
+
+#station {
+  display: flex;
+  align-items: center;
+}
+
+#station-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.station-time {
+  margin-left: 0.8rem;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+#station-name {
+  height: fit-content;
+  line-height: 1;
+  margin-left: 0.8rem;
+}
+
+#roadmap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#dot {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: solid 2px black;
+}
+
+#dot-filled {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.journey-line {
+  height: 2.3rem;
+  width: 0.1em;
+  background-color: black;
+}
+
+.journey-line-without-dot {
+  margin-left: 0.56rem;
+}
+

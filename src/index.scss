@@ -1,0 +1,26 @@
+@use 'assets/variables' as v;
+
+body,
+html {
+  font-family: "stolzl", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
+$theme-colors: (
+        "primary": v.$primary-color,
+        "secondary": v.$secondary-color
+);
+
+input {
+  border-radius: 0.2em;
+  border: 1.9px solid black;
+  margin: 0.4rem;
+  padding: 0.5em;
+}
+
+input:focus {
+  outline: none;
+}
+
+@import "~bootstrap/scss/bootstrap";
