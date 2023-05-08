@@ -27,7 +27,7 @@ export default function SearchResultPage() {
         setConnections(res.data.connections);
         setLoading(false);
       });
-    }, 1000);
+    }, 60000);
   }, []);
 
   if (loading) {
