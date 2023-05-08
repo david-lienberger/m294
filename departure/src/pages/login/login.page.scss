@@ -1,0 +1,43 @@
+.Login{
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: auto;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 10px 50px;
+    border-width: 1px;
+    border-radius: 0.5em;
+    border-color: rgb(195, 195, 195);
+    border-style: solid;
+    padding: 1em;
+    justify-content: center;
+    display: flex;
+}
+.form-group{
+    margin-bottom: 1em;
+}
+h1{
+    margin-left: 1em;
+    margin-top: 1em;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #EB0000;
+    background-color: cutom-color;
+    border-color: #EB0000;
+    border-color: cutom-cor;
+}
+
+.Input{
+    border-radius: 0.2em;
+}
+.p{
+    margin-bottom: 0.5em;
+}
+
+.Error{
+    width: 100%;
+    height: 2em;
+    background-color: #EB0000;
+    color: black;
+}

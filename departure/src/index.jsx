@@ -1,10 +1,9 @@
 import './index.scss';
-import "react-toastify/ReactToastify.min.css";
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './i18n';
 import App from './pages/dashboard/dashboard.page';
+import Login from './pages/login/login.page';
 import { RouterProvider } from 'react-router';
 import { createBrowserRouter } from 'react-router-dom';
 import ConnectionDetailsComponent from './pages/connection-details/connection-details.component';
@@ -27,6 +26,10 @@ const router = createBrowserRouter([
     element: <AuthGuard auth={{isAuthenticated: true}}><App /></AuthGuard>
   },
   {
+    path: "/login",
+    element: <Login />
+  },
+  {
     path: "/connection",
     element: <AuthGuard auth={{isAuthenticated: true}}><ConnectionDetailsComponent /></AuthGuard>
   },
@@ -38,6 +41,7 @@ const router = createBrowserRouter([
     path: "*",
     element: <NotFoundPage />
   }
+
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
