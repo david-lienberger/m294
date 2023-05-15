@@ -2,11 +2,11 @@ import axios from 'axios';
 
 export default class ConnectionsService {
   getConnections() {
-    return axios.get('http://localhost:4242/api/connections');
+    return axios.get('https://departure-api-wa.azurewebsites.net/api/connections');
   }
 
   deleteConnection(id) {
-    return axios.delete(`http://localhost:4242/api/connections/${id}`);
+    return axios.delete(`https://departure-api-wa.azurewebsites.net/api/connections/${id}`);
   }
 
   addConnection(from, to) {
@@ -14,6 +14,6 @@ export default class ConnectionsService {
       from,
       to,
     };
-    return axios.post('http://localhost:4242/api/connections', body);
+    return axios.post('https://departure-api-wa.azurewebsites.net/api/connections', body);
   }
 }
