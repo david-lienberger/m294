@@ -2,6 +2,7 @@
   "name": "departure",
   "version": "0.1.0",
   "private": true,
+  "main": "src/index.jsx",
   "homepage": "https://david-lienberger.github.io/m294/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
