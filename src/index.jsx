@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ReactDOM from 'react-dom/client';
 import './i18n';
 import { RouterProvider } from 'react-router';
-import { createBrowserRouter } from 'react-router-dom';
+import {createBrowserRouter, createHashRouter} from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import App from './pages/dashboard/dashboard.page';
 import LoginComponent from './pages/login/login.page';
@@ -20,7 +20,7 @@ const responseInterceptor = new ResponseInterceptor();
 responseInterceptor.setUp();
 requestInterceptor.setUp();
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: '/',
     element: <AuthGuard><App /></AuthGuard>,
